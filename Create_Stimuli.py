@@ -13,7 +13,7 @@ library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_heig
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 rooms = [library, trapezoid]
 
-mode = "Stimuli"
+mode = "Dirac"
 if mode is "Stimuli":
     stimuli_pos = [30, 0, 0, 0, 330]
     stimuli_name = ['Piano.wav', 'Ride.wav', 'Kick.wav', 'Snare.wav', 'Sax.wav']

@@ -59,14 +59,14 @@ cube = [[1.5, 0, 0],
 #                     [0, 0, 1],
 #                     [0, 0, -1]])
 
-# HOA_cart = [rir.spherical_2_cartesian(coord[0], coord[2], coord[1]) for coord in dodeca]
+HOA_cart = [rir.spherical_2_cartesian(coord[0], coord[2], coord[1]) for coord in dodeca]
 #
 #
 # HOA_sph = [rir.cartesian_2_spherical(coord[0], coord[1], coord[2]) for coord in HOA_cart]
 #
-# for ind, pos in enumerate(HOA_cart):
-#     print(pos)
-#     # print(pos[0], pos[1], pos[2])
+for ind, pos in enumerate(HOA_cart):
+    print(pos)
+    # print(pos[0], pos[1], pos[2])
 #
 # HOA_cart = np.array(HOA_cart).T
 # fig = plt.figure(1)
@@ -77,6 +77,6 @@ cube = [[1.5, 0, 0],
 
 # cart = [rir.spherical_2_cartesian(cap) for cap in rir.eigenmike_capsules]
 # print(cart)
-
-for pos in dodeca:
-    print(pos[1], pos[2], pos[0])
+#
+# for pos in dodeca:
+#     print(pos[1], pos[2], pos[0])
