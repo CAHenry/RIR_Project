@@ -172,12 +172,15 @@ eigenmike_capsules = [[0.042, 21, 0],
 kemar_capsules = [[0.08, 0, 90],
                   [0.08, 0, 270]]
 
-DRR_adjustment_trapezoid = [[1.110043587, 0.906800646],
-                            [0.209006423526168, -13.596807324755],
-                            [0.211569414441458, -13.4909423186911],
-                            [0.049671364, -26.07787821]]
+# values below set on June 4, from the normalizeLoudness.m script, using
+# Reverb Only stimuli which were equalized with a lo-shelf filter (g=-15db,
+# fc=1khz)
+DRR_adjustment_trapezoid = [[0.82204, -1.7021],
+                            [0.24951, -12.038],
+                            [0.22887, -12.787],
+                            [0.58886, -4.5997]]
 
-DRR_adjustment_library = [[0.480472242, -6.366633944],
-                          [0.123981846968144, -18.13283796],
-                          [0.107855812393245, -19.3431289125186],
-                          [0.329171253, -9.651561975]]
+DRR_adjustment_library = [[0.48533, -6.2793],
+                          [0.17254, -15.241],
+                          [0.14857, -16.54],
+                          [0.35386, -9.0234]]
