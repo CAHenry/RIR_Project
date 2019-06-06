@@ -13,7 +13,7 @@ library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_heig
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 rooms = [library, trapezoid]
 
-mode = "Dirac"
+mode = "Stimuli"
 if mode is "Stimuli":
     stimuli_pos = [30, 0, 0, 0, 330]
     stimuli_name = ['Piano.wav', 'Ride.wav', 'Kick.wav', 'Snare.wav', 'Sax.wav']
@@ -25,13 +25,16 @@ else:
     stimuli_name = []
     quit()
 
-SDM = rir.Method("SDM", 20)
-# HOA = rir.Method("HOA", 20)
-# FOA = rir.Method("FOA", 6)
-MP = rir.Method("MP", len(stimuli_pos))
-methods = [SDM, MP]
+# SDM = rir.Method("SDM", 20)
+_0OA = rir.Method("0OA", 6)
+_1OA = rir.Method("1OA", 6)
+_2OA = rir.Method("2OA", 12)
+_3OA = rir.Method("3OA", 20)
+_4OA = rir.Method("4OA", 32)
+# MP = rir.Method("MP", len(stimuli_pos))
+methods = [_0OA,_1OA,_2OA,_4OA]
 
-root_dir = "C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files"
+root_dir = "C:\\Users\\Isaac\\Audio_files"
 stimuli_dir = os.path.join(root_dir, "Stimuli\\Dry")
 
 for method in methods:
@@ -53,6 +56,7 @@ for method in methods:
 
         temp_stim, fs = sf.read(stimuli[0][0])
 
+        print("Convolving",method.name, room.name,"...")
         convolved = np.zeros([len(stimuli_pos), method.channels, len(temp_stim) + max_len - 1])
 
         for file_ind, files in enumerate(stimuli):
