@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dab64ca1-dcdb-4f0a-9f3e-70ef0c54e8e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Archive/HOA_positions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Archive/HOA_positions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Create_XML_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/Create_XML_file.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,8 +59,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Create_XML_file.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3411">
-                  <caret line="199" column="72" lean-forward="true" selection-start-line="199" selection-start-column="72" selection-end-line="199" selection-end-column="72" />
+                <state relative-caret-position="80">
+                  <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -922,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Create_XML_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3411">
-          <caret line="199" column="72" lean-forward="true" selection-start-line="199" selection-start-column="72" selection-end-line="199" selection-end-column="72" />
+        <state relative-caret-position="80">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

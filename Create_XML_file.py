@@ -2,7 +2,7 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "Direct"
+xml_name_base = "Full"
 
 frame_size = 256
 reverb_order = "0D"
@@ -19,10 +19,10 @@ rooms = [library, trapezoid]
 root = "./.."
 
 Direct = True
-MP = False
-FOA = False
-HOA = False
-SDM = False
+MP = True
+FOA = True
+HOA = True
+SDM = True
 
 gain = 1  # note: for FOA and HOA UNCORRECTED we used -6dB gain
 compensated = True
