@@ -13,13 +13,16 @@ library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_heig
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 rooms = [library, trapezoid]
 
-mode = "Stimuli"
-if mode is "Stimuli":
+mode = "TakeFive"
+if mode is "TakeFive":
     stimuli_pos = [30, 0, 0, 0, 330]
     stimuli_name = ['Piano.wav', 'Ride.wav', 'Kick.wav', 'Snare.wav', 'Sax.wav']
 elif mode is "Dirac":
     stimuli_pos = [30, 0, 0, 0, 330]
     stimuli_name = ['Dirac.wav', 'Dirac.wav', 'Dirac.wav', 'Dirac.wav', 'Dirac.wav']
+elif mode is "Speech":
+    stimuli_pos = [30]
+    stimuli_name = ['Speech.wav']
 else:
     stimuli_pos = []
     stimuli_name = []
@@ -32,7 +35,7 @@ _2OA = rir.Method("2OA", 12)
 _3OA = rir.Method("3OA", 20)
 _4OA = rir.Method("4OA", 32)
 # MP = rir.Method("MP", len(stimuli_pos))
-methods = [_0OA,_1OA,_2OA,_4OA]
+methods = [_0OA,_1OA,_2OA,_3OA,_4OA]
 
 root_dir = "C:\\Users\\Isaac\\Audio_files"
 stimuli_dir = os.path.join(root_dir, "Stimuli\\Dry")
@@ -86,10 +89,12 @@ for method in methods:
             if max(channel) >= 1:
                 print("clipping")
             channel = (channel * (2 ** 15 - 1)).astype(np.int16)
-            if mode is "Stimuli":
-                filename = os.path.join(output_dir, room.name + "_" + method.name + "_" + str(ind) + ".wav")
+            if mode is "TakeFive":
+                filename = os.path.join(output_dir, room.name + "_" + method.name + "_TakeFive_" + str(ind) + ".wav")
             elif mode is "Dirac":
                 filename = os.path.join(output_dir, room.name + "_" + method.name + "_Dirac_" + str(ind) + ".wav")
+            elif mode is "Speech":
+                filename = os.path.join(output_dir, room.name + "_" + method.name + "_Speech_" + str(ind) + ".wav")
 
             sf.write(filename, channel, fs)
 
