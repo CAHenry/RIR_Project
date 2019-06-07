@@ -1,0 +1,92 @@
+\documentclass[10pt]{article}
+
+\newcommand{\longtitle}{MUSHRA2.json: A guide to increasing or reducing the number of stimuli} % title of the document (for main title)
+\newcommand{\shorttitle}{MUSHRA2.json: Stimulus guide} % title of the document (for header)
+\newcommand{\me}{Chris Hummersone} % author name
+\newcommand{\email}{c.hummersone@surrey.ac.uk} % author email address
+\newcommand{\mydate}{\today} % the date
+
+\input{../tex_preamble} % input standard preamble
+
+%%%%%%%%% Begin Document %%%%%%%%%
+
+\begin{document}
+
+{\sf\maketitle}
+
+There are several parts of the patch that need to be altered in order to increase or decrease the number of stimuli and/or music tracks (banks). This document will list them, module by module. In most cases there is an obvious pattern to the labelling that can be followed.  Buttons are provided for a maximum of 10 stimuli\footnote{More than this can be difficult for the listener} (excluding the reference).  For more information, please consult \href{MUSHRA_UserGuide.pdf}{MUSHRA\_UserGuide.pdf} and \href{MUSHRA_schematic.pdf}{MUSHRA\_schematic.pdf}.
+
+The number of pages is calculated as the product of the number of banks you wish to use and the number of desired repeats.
+
+\section{Page Control}
+\begin{itemize}
+\item Replace the two occurrences of ``6'' (in the message box and \verb|<if>| object) with the desired number of pages.
+\end{itemize}
+
+\section{Page Reset}
+\begin{itemize}
+\item Replace one occurrence of ``6'' (in the \verb|<if>| object) with the desired number of pages.
+\end{itemize}
+
+\section{Random Number Genrator and Audio File Assignment}
+\begin{itemize}
+\item  Adjust the numerical arguments of \verb|<uzi>|, \verb|<urn>|, \verb|<cycle>| (both) and \verb|<select>| to match the number of required stimuli.
+\item  Add or remove: \verb|<r Result...>| objects and their associated bang button, number box, \verb|<r stimuli...>| objects, and \verb|<s Scale...>| objects. Ensure labelling patterns remain.
+\item  Do not adjust filenames in this module.
+\item  Ensure the last stimulus sends a \verb|<Sync>| bang.
+\end{itemize}
+
+\section{Export Results}
+\begin{itemize}
+\item Add or remove the \verb|<receive>| objects at the top, continuing the pattern shown.
+\item Add or remove entries in the \verb|<sprintf>| object. The left-most input is always connected to the message box. All other inputs correspond to the \verb|%ld| entries.
+\item Each stimulus in the \verb|<sprintf>| object (or row in the results file) occurs as the following string: \verb|%s\\\, %ld cr|. Simply remove or append these statements as necessary.
+\item  Remember to keep everything in the correct (ascending) order.
+\item Replace one occurrence of ``6'' (in the \verb|<if>| object) with the desired number of pages.
+\end{itemize}
+
+\section{Stimulus Toggle}
+\begin{itemize}
+\item Add of remove entries in the \verb|<select>| object for keyboard inputs. The right-most output is unused.
+\item Add or remove \verb|<pvar Button...>| entries and associated message boxes. Ensure numbers in message boxes ascend from 0 on the left.
+\item Use the inspector to change the number of rows in the \verb|<matrixctrl>| object.
+\item Add or remove entries in, and connected outputs from, the \verb|<route>| object. The numbers correspond to the integers in the message boxes above (and also to the columns in the \verb|<matrixctrl>|). Each outlet of \verb|<route>| is connected to three object: \verb|<pvar Button...>| (via a ``set \$1'' message box), \verb|<s Select...>|, and \verb|<s Freeze...>| (via an \verb|<expr 2-$i1>| object).
+\end{itemize}
+
+\section{Audio Bank Selector}
+\begin{itemize}
+\item Change the argument of \verb|<urn>| to be the number of pages.
+\item Increment or decrement \verb|<select>| accordingly.
+\item Note that you have to gang outputs of \verb|<select>| together; ganging them together in this way facilitates the repeats. Adjacent outputs of \verb|<select>| do not necessarily have to be ganged, since pages are selected randomly.
+\item Connect or disconnect the subsequent bangs to additional filename message boxes.
+\item Add or remove subsequent \verb|<s stimuli...>|.
+\end{itemize}
+
+\section{Validation}
+\begin{itemize}
+\item Add or remove \verb|<r Result...>| to correspond with the scales
+\item Each \verb|<r Result...>| must be connected to a \verb|<bang>| and that \verb|<bang>| connected to a \verb|<onebang>| object. The right inlet of the \verb|<onebang>| must be connected to the top-most bang of the module - the ``ResetValidation'' bang
+\item The left outlet of each \verb|<onebang>| is connected to an adder. Adjust the argument of the subsequent \verb|<if>| to read:\begin{quote}\verb|if \$i1==N then send NextStatus 1 else send NextStatus 0|\end{quote}where \verb|N| is the number of stimuli per page
+\end{itemize}
+
+\section{Scale Ouput}
+\begin{itemize}
+\item The audio replay for each scale is abstracted in to the \verb|slideraudio.json| patcher. It shouldn't be necessary to modify how audio is handled there.
+\item Add or remove \verb|<slideraudio>| objects and connected objects.
+\item Change \verb|<r Scale...>| and \verb|<r Select...>| objects.
+\end{itemize}
+
+\section{Scale Score Locking}
+\begin{itemize}
+\item Add or remove the groups of objects centred on the \verb|<locking>| object, changing the scale letter as necessary.
+\end{itemize}
+
+\section{Other}
+\begin{itemize}
+\item  Obviously the actual number of scales needs to be increased or decreased to match. All of the GUI objects are referred to by scripting names, which you can change in the inspector (the \verb|<pvar>| objects are used to interact with them).
+\item  This will obviously require the associated buttons and number boxes.
+\item Scale buttons are \verb|<pictctrl>| objects. The are set to "toggle" mode and include image masks.
+\item Buttons are included up to the letter J, permitting up to 10 scales. Note that 10 stimuli can make the listener's task very difficult, so using this many is discouraged.
+\end{itemize}
+
+\end{document}

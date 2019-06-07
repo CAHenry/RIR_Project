@@ -1,0 +1,27 @@
+\documentclass[10pt]{article}
+
+\newcommand{\longtitle}{MUSHRA2.json: User guide} % title of the document (for main title)
+\newcommand{\shorttitle}{MUSHRA2.json: User guide} % title of the document (for header)
+\newcommand{\me}{Chris Hummersone} % author name
+\newcommand{\email}{c.hummersone@surrey.ac.uk} % author email address
+\newcommand{\mydate}{\today} % the date
+
+\input{../tex_preamble} % input standard preamble
+
+%%%%%%%%% Begin Document %%%%%%%%%
+
+\begin{document}
+
+{\sf\maketitle}
+
+This Max/MSP patcher is designed for conducting MUSHRA (MUltiple Stimulus with Hidden Reference and Anchor, see ITU-R BS.1534) listening tests.  This document provides some general notes on the operation of the patch at a fairly high level; the comments within the patch provide more detailed information on its low level operation. An overview of the modules, and how they relate to each other, is provided in \href{MUSHRA_schematic.pdf}{MUSHRA\_schematic.pdf}.
+
+The patch allows the comparison of a number of stimuli\footnote{see \href{MUSHRA_stimulus_guide.pdf}{MUSHRA\_stimulus\_guide.pdf} for instructions on changing the number of stimuli} (7 by default, although up to 15 is supported) and facilitates repeats.  Stimuli should be placed in the `Stimuli' subfolder of the patcher folder and the appropriate filenames inserted into the ``Audio Bank Selector'' module.
+
+By default, the patch can compare seven processes applied to three music tracks (``banks''), with two repeats, making a total of six pages. The order of both the banks and the stimuli is randomised.  The results file output by the patch is flat text CSV file, and hence suitable to be directly imported into any spreadsheet software. The first column indicates the filename of the stimulus, the second column indicates the score.  Once the test is complete the user is prompted to enter a filename for the test results.  Note that the patcher simultaneously automatically saves a backup of the scores after each page is completed to the patcher's folder with a timestamp filename (format: DayMonthYearHoursMinsSecs.csv with no redundant zeros).
+
+The patcher restricts the user from progressing to the next page until all of the scales have been moved -- even if the desired score is zero, the scale marker must be moved away from and then back to zero.  The next button will be inactive (greyed out) until the user has fulfilled this requirement.  In accordance with the MUSHRA standard, the patcher also restricts the user to only adjusting the slider for the active audio excerpt (or none if the reference is selected). Lastly, the keyboard may be used to operate the patch (but not the scales), although the mapping may need to be tweaked according to the operating system on which the patch is used. The keyboard inputs module provides a number box to test key mappings.
+
+The patcher works by playing all sound files simultaneously; the desired stimulus is un-muted, whilst other stimuli are muted. The buttons atop each scale are toggle buttons. The output of each button is effectively connected to every other button to ensure that other buttons are muted when one is selected (this happens in the ``Stimulus Toggle'' module).
+
+\end{document}

@@ -1,0 +1,160 @@
+%%%%%%%%%%%%%%% GEOMETRY %%%%%%%%%%%%%%%%
+
+% page size and margins
+
+\usepackage[lmargin=3cm,rmargin=3cm,tmargin=3cm,bmargin=3cm]{geometry}
+\geometry{a4paper}
+
+%%%%%%%%%%%%%% TITLESEC %%%%%%%%%%%%%%%%
+
+% section headings format
+
+\usepackage[sf,medium,compact]{titlesec}
+\titlelabel{\thetitle.\quad}
+
+%%%%%%%%%%%%%%%% MATHS %%%%%%%%%%%%%%%%
+
+\usepackage{amsmath,amsbsy,amssymb} % packages
+
+\allowdisplaybreaks % allow equations to break across pages
+
+% symbols
+\newcommand{\R}{\mathfrak{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\ud}{\,\text{d}}
+\newcommand{\fs}{f\negthinspace{}s}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% commands
+\newcommand{\tf}[1]{\mathbf{#1}}
+\newcommand{\tfg}[1]{\boldsymbol{#1}}
+\newcommand{\norm}[1]{\hat{#1}}
+\newcommand{\new}[1]{\acute{#1}}
+\newcommand{\peak}[1]{\mathring{#1}}
+\newcommand{\pool}[1]{\bar{#1}}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\CI}{i} % channel index
+\newcommand{\FI}{l} % frame index
+
+%%%%%%%%%%%%%%%% FANCYHDR %%%%%%%%%%%%%%%%
+
+% headers and footers
+
+\usepackage{fancyhdr}
+\fancyhead{} % clear all header fields
+\fancyhead[R]{\sf\shorttitle}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[R]{\sf\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancypagestyle{plain}{\fancyhead{} % get rid of headers on plain pages
+\renewcommand{\headrulewidth}{0pt}} % and the line
+\setlength{\headheight}{15pt}
+
+%%%%%%%%%%%%%%% CAPTION %%%%%%%%%%%%%%%%
+
+% captions and subcaptions
+
+\usepackage[margin=2em,singlelinecheck=on,font=small,labelfont={bf,sf},labelsep=colon]{caption}
+\usepackage[singlelinecheck=on,list=true]{subcaption}
+
+%%%%%%%%%%%%%%% TOCLOFT %%%%%%%%%%%%%%%%
+
+% TOC, LOF, and LOT
+
+\usepackage[titles]{tocloft}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+
+%%%%%%%%%%%%%%%% TABLES %%%%%%%%%%%%%%%%
+
+\usepackage{multirow} % allows entries to span multiple rows (identical to multicolumn command)
+\newcommand{\colheading}[1]{\multirow{2}{*}{\textbf{#1}}} % custom column heading command
+\newcommand{\tablesubtitle}[2]{\multicolumn{#1}{l}{\emph{\textbf{#2}}}} % custom table sub heading to span the specified number of columns
+\renewcommand\arraystretch{1.2} % row height
+
+%%%%%%%%%%%%%%%% DEFINITIONS %%%%%%%%%%%%%%%%
+
+% words containing special symbols
+
+\newcommand{\RT}{RT$_{\text{60}}$}
+\newcommand{\matlab}{\textsc{matlab}}
+
+%%%%%%%%%%%%%%%% MCODE %%%%%%%%%%%%%%%%
+
+% for publishing Matlab code
+
+\usepackage[numbered,framed]{mcode}
+\lstset{breaklines=true}
+
+\lstset{
+    literate={~}{$\sim$}{1} % set tilde as a literal (no process)
+}
+
+% New list environment
+\newenvironment{mlist}[1][\quad]%
+  {\begin{list}{}{%
+     \renewcommand{\makelabel}[1]{\small\texttt{##1}\hfil}%
+     \setlength{\labelwidth}{2em}%
+     \setlength{\itemsep}{0in}%
+     \setlength{\parsep}{0in}%
+     \setlength{\leftmargin}{\labelwidth+\labelsep}}}
+  {\end{list}}
+
+%%%%%%%%%%%%%%%% MISC %%%%%%%%%%%%%%%%
+
+% miscellaneous packages
+
+\usepackage[T1]{fontenc} % font package
+\usepackage{textcomp} % misc symbols
+\usepackage{verbdef}
+\usepackage{calc} % perform calculations on lengths
+\usepackage{appendix}
+\usepackage{graphicx}
+\renewcommand{\ttdefault}{pcr} % default typewriter font
+
+%%%%%%%%%%%%%%%% HYPERREF %%%%%%%%%%%%%%%%
+
+% package for adding enhanced PDF functionality (clickable links, metadata, etc.)
+
+% Hyperref package
+\usepackage[pdftex]{hyperref} 
+\hypersetup{plainpages=false,%
+pdftitle=\longtitle,%
+pdfauthor=\me,%
+colorlinks=false,
+breaklinks=true
+}
+
+\renewcommand{\equationautorefname}{Equation}
+\renewcommand{\figureautorefname}{Figure}
+\renewcommand{\subfigureautorefname}{Figure}
+\renewcommand{\Itemautorefname}{Item}
+\renewcommand{\tableautorefname}{Table}
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\subsectionautorefname}{Section}
+\renewcommand{\subsubsectionautorefname}{Section}
+
+% redefine appendix autoref in article class
+\makeatletter
+\edef\Hy@chapterstring{\expandafter\strip@prefix\meaning\Hy@chapterstring}
+\makeatother 
+
+%%%%%%%%%%%%%%%% LAYOUT OPTIONS %%%%%%%%%%%%%%%%
+
+\hyphenpenalty=5000
+\tolerance=1000
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+\setlength{\parindent}{0pt} % set paragraph indent
+\setlength{\parskip}{1ex plus 0.2ex minus 0.2ex} % set paragraph spacing
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%% DOCUMENT PROPERTIES %%%%%%%%%%%%%%%%
+
+\title{\longtitle}
+\author{\me\footnote{\href{mailto:\email}{\email}}}
+\date{\mydate}

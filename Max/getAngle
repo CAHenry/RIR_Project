@@ -1,0 +1,64 @@
+
+// Take output from the head tracker and convert it to
+// radians in the range [-pi, pi].
+// Also, set output to 0 when receiving bang
+
+inlets = 3;
+outlets = 3;
+
+setinletassist(0, "input 1 (integer) / bang to calibrate");
+setinletassist(1, "input 2 (integer) / bang to calibrate");
+setinletassist(2, "input 3 (integer) / bang to calibrate");
+setoutletassist(0, "angle 1 in radians");
+setoutletassist(1, "angle 1 in radians");
+setoutletassist(2, "angle 1 in radians");
+
+in_min  = -32767;  // input minimum
+in_max  =  32767;  // input maximum
+out_min = -3.1416; // output minimum
+out_max =  3.1416; // output maximum
+
+in_range = in_max - in_min;    // total input range
+out_range = out_max - out_min; // total output range
+
+n = 3; // number of input/ouputs
+
+var bias = [0,0,0]; // bias value, initially 0, updated when calibrated
+var val  = [0,0,0]; // current input value		
+
+
+function msg_int(a) {
+// take inputs
+	if(inlet == 0){
+		val[0] = a;
+	} else if(inlet == 1){
+		val[1] = a;
+	} else if(inlet == 2){
+		val[2] = a;
+	}
+	update_values();
+}
+
+function update_values() {
+// calculate and output all values
+	for(var i=0; i<n; i++) { 
+		x = val[i] - bias[i]; // apply bias
+		if(x > in_max) { // correct if higher than the max
+			x -= in_range;
+		}
+		if(x < in_min) { // correct if lower than the min
+			x += in_range;
+		}
+		x = x*out_range/in_range; // convert to rad
+		outlet(i,x);
+ 	}
+}
+
+function bang() {
+// calibrate by setting the bias to the current value
+	for(var i=0; i<n; i++) {
+		bias[i] = val[i];
+		outlet(i,0);
+	}
+}
+	
