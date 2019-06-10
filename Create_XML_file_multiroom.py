@@ -2,17 +2,17 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "Fullfull"
+xml_name_base = "TakeFiveTrapezoid4OA"
 
 frame_size = 256
 reverb_order = "0D"
 
-modes = ["TakeFive", "Speech"]
-mode_stim = [5, 1]
+modes = ["TakeFive"]#["TakeFive", "Speech"]
+mode_stim = [1]#[5, 1]
 
 library = rir.Room("Library", 1.5, 1.2, 1.5, DRR=rir.DRR_adjustment_library)    # name, rt60, rd_ratio, mic_height, mic_distance
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2, DRR=rir.DRR_adjustment_trapezoid)
-rooms = [library, trapezoid]
+rooms = [trapezoid]#[library, trapezoid]
 root = "./.."
 
 Direct = True
@@ -20,13 +20,13 @@ MP = False
 FOA = False
 HOA = False
 SDM = False
-_0OA = True
-_1OA = True
-_2OA = True
-_3OA = True
+_0OA = False
+_1OA = False
+_2OA = False
+_3OA = False
 _4OA = True
 
-gain = 1
+gain = 1.0
 compensated = True
 
 def write_source(file, num, pos, name, location, vol, vol_db, slider_pos=45, reverb_state="Off"):
@@ -49,8 +49,8 @@ for ind, mode in enumerate(modes):
 xml_filename = xml_name_base + ".xml"
 
 # xml = open(os.path.join("C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
-xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli_EQ\\XML", xml_filename), "w+")
-# xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
+# xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli_EQ\\XML", xml_filename), "w+")
+xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli_EQ/XML", xml_filename), "w+")
 
 xml.write("<BinauralApp>\n"
           "\t<FrameSize>%d</FrameSize>\n"
