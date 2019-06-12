@@ -13,6 +13,10 @@ library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_heig
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 rooms = [library, trapezoid]
 
+# root_dir = "C:\\Users\\Isaac\\Audio_files"
+root_dir = "/Users/isaacengel/Documents/Audio_files"
+stimuli_dir = os.path.join(root_dir, "Stimuli", "Dry")
+
 apply_filter = True
 methods_to_filter = ["0OA","1OA","2OA","3OA","4OA","MP"]
 # Filter: low shelf, g=-15db, fc=1khz from https://arachnoid.com/BiQuadDesigner/
@@ -48,9 +52,6 @@ for mode in modes:
     _4OA = rir.Method("4OA", 32)
     MP = rir.Method("MP", len(stimuli_pos))
     methods = [_0OA,_1OA,_2OA,_3OA,_4OA,MP]
-
-    root_dir = "C:\\Users\\Isaac\\Audio_files"
-    stimuli_dir = os.path.join(root_dir, "Stimuli\\Dry")
 
     for method in methods:
 
@@ -103,6 +104,10 @@ for mode in modes:
                 max_len_file = output.shape[1]
 
             for ind, channel in enumerate(output):
+
+                if apply_filter and method.name in methods_to_filter:
+                    channel = signal.sosfilt(sos, channel)
+
                 if max(channel) >= 1:
                     print("clipping")
                 channel = (channel * (2 ** 15 - 1)).astype(np.int16)
@@ -112,9 +117,6 @@ for mode in modes:
                     filename = os.path.join(output_dir, room.name + "_" + method.name + "_Dirac_" + str(ind) + ".wav")
                 elif mode is "Speech":
                     filename = os.path.join(output_dir, room.name + "_" + method.name + "_Speech_" + str(ind) + ".wav")
-
-                if apply_filter and method in methods_to_filter:
-                    channel = signal.sosfilt(sos, channel)
 
                 sf.write(filename, channel, fs)
 

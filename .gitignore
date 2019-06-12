@@ -3,3 +3,6 @@ __pycache__
 .DS_Store
 virtualenv
 RIRInterpreter
+Max/Mushra/Results/csv/
+*.pyc
+*.csv

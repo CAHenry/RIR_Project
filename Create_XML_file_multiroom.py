@@ -2,32 +2,31 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "TakeFiveTrapezoid4OA"
+xml_name_base = "FullAmbi_plus6db"
 
 frame_size = 256
 reverb_order = "0D"
 
-modes = ["TakeFive"]#["TakeFive", "Speech"]
-mode_stim = [1]#[5, 1]
+modes = ["TakeFive", "Speech"]
+mode_stim = [5, 1]
 
 library = rir.Room("Library", 1.5, 1.2, 1.5, DRR=rir.DRR_adjustment_library)    # name, rt60, rd_ratio, mic_height, mic_distance
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2, DRR=rir.DRR_adjustment_trapezoid)
-rooms = [trapezoid]#[library, trapezoid]
+rooms = [library, trapezoid]
 root = "./.."
 
 Direct = True
 MP = False
-FOA = False
-HOA = False
 SDM = False
-_0OA = False
-_1OA = False
-_2OA = False
-_3OA = False
+_0OA = True
+_1OA = True
+_2OA = True
+_3OA = True
 _4OA = True
 
 gain = 1.0
 compensated = True
+reverbPlus6db = True  # whether to add 6db to all reverbs, to make the listening test easier
 
 def write_source(file, num, pos, name, location, vol, vol_db, slider_pos=45, reverb_state="Off"):
     file.write("\t<Source%d_x>%.9f</Source%d_x>\n" % (num, pos[0], num))
@@ -50,7 +49,7 @@ xml_filename = xml_name_base + ".xml"
 
 # xml = open(os.path.join("C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
 # xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli_EQ\\XML", xml_filename), "w+")
-xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli_EQ/XML", xml_filename), "w+")
+xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
 
 xml.write("<BinauralApp>\n"
           "\t<FrameSize>%d</FrameSize>\n"
@@ -109,9 +108,11 @@ for mode in modes:
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[6][0] * gain
+                vol = 10 ** (room.DRR[0] / 20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -127,9 +128,11 @@ for mode in modes:
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[1][0] * gain
+                vol = 10 ** (room.DRR[1] / 20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -145,9 +148,11 @@ for mode in modes:
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[2][0] * gain
+                vol = 10 ** (room.DRR[2] / 20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -163,9 +168,11 @@ for mode in modes:
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[3][0] * gain
+                vol = 10 ** (room.DRR[3] / 20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -181,9 +188,11 @@ for mode in modes:
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[4][0] * gain
+                vol = 10 ** (room.DRR[4] / 20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -199,9 +208,11 @@ for mode in modes:
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[5][0] * gain
+                vol = 10 ** (room.DRR[5] / 20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -217,9 +228,11 @@ for mode in modes:
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[6][0] * gain
+                vol = 10 ** (room.DRR[6] / 20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):

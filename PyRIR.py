@@ -172,24 +172,24 @@ eigenmike_capsules = [[0.042, 21, 0],
 kemar_capsules = [[0.08, 0, 90],
                   [0.08, 0, 270]]
 
-# values below set on June 4, from the normalizeLoudness.m script, using
-# Reverb Only stimuli which were equalized with a lo-shelf filter (g=-15db,
-# fc=1khz)
-DRR_adjustment_trapezoid = [[1.0000,  0.0000], # MP
-                            [1.0000,  0.0000], # SDM
-                            [1.2589,  2.0000], # 0OA
-                            [1.1220,  1.0000], # 1OA
-                            [1.0000,  0.0000], # 2OA
-                            [1.0000,  0.0000], # 3OA
-                            [1.0000,  0.0000]] # 4OA
+# values *IN DB* below set on June 12, from the normalizeLoudness.m script, using
+# 3DTI recordings which were equalized with a lo-shelf filter, and normalising
+# to the DRR of a frontal kemar BRIR
+DRR_adjustment_trapezoid = [-1.7012, # MP
+                             0.0000, # SDM, not using it for now
+                             2.3227, # 0OA
+                             0.4008, # 1OA
+                            -0.1243, # 2OA
+                            -0.2331, # 3OA
+                            -0.3740] # 4OA
 
-DRR_adjustment_library =   [[1.0000,  0.0000], # MP
-                            [1.0000,  0.0000], # SDM
-                            [1.2589,  2.0000], # 0OA
-                            [1.1220,  1.0000], # 1OA
-                            [1.0000,  0.0000], # 2OA
-                            [1.0000,  0.0000], # 3OA
-                            [1.0000,  0.0000]] # 4OA
+DRR_adjustment_library =   [-1.6868, # MP
+                             0.0000, # SDM, not using it for now
+                             2.3912, # 0OA
+                             1.3500, # 1OA
+                             0.8494, # 2OA
+                             0.5971, # 3OA
+                            -0.9917] # 4OA , added 2dB because it was noticeably quieter than the rest
 
 # Loudspeaker configurations in spherical coordinates [azimuth,elevation], in degrees
 tetrahedron =    [[0, 0],

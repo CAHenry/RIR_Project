@@ -2,35 +2,35 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "Full"
+xml_name_base = "PairedComp_plus6db"
 
 frame_size = 256
 reverb_order = "0D"
 
-# modes = ["Stimuli", "Dirac"]
-# mode_stim = [5, 5]
+modes = ["TakeFive","Speech"]
+mode_stim = [5,1]
 
-modes = ["Stimuli"]
-mode_stim = [5]
+# modes = ["TakeFive"]
+# mode_stim = [5]
 
-library = rir.Room("Library", 1.5, 1.2, 1.5, DRR=rir.DRR_adjustment_library)    # name, rt60, rd_ratio, mic_height, mic_distance
+library = rir.Room("Library", 1.5, 1.2, 1.5, DRR=rir.DRR_adjustment_library)  # name, rt60, rd_ratio, mic_height, mic_distance
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2, DRR=rir.DRR_adjustment_trapezoid)
 rooms = [library, trapezoid]
 root = "./.."
 
 Direct = True
-MP = False
-FOA = False
-HOA = False
+MP = True
 SDM = False
-_0OA = True
+_0OA = False
 _1OA = True
-_2OA = True
-_3OA = True
-_4OA = True
+_2OA = False
+_3OA = False
+_4OA = False
+_1OA_s = True
 
-gain = 1
+gain = 1.0
 compensated = True
+reverbPlus6db = True  # whether to add 6db to all reverbs, to make the listening test easier
 
 def write_source(file, num, pos, name, location, vol, vol_db, slider_pos=45, reverb_state="Off"):
     file.write("\t<Source%d_x>%.9f</Source%d_x>\n" % (num, pos[0], num))
@@ -45,41 +45,47 @@ def write_source(file, num, pos, name, location, vol, vol_db, slider_pos=45, rev
     file.write("\t<Source_%d_NF>Off</Source_%d_NF>\n" % (num, num))
     file.write("\t<Source_%d_FD>Off</Source_%d_FD>\n" % (num, num))
 
+num_sources = 0
+for ind, mode in enumerate(modes):
+    num_sources += Direct*mode_stim[ind] + MP*mode_stim[ind] + SDM*20 + _0OA*6 + _1OA*6 + _2OA*12 + _3OA*20 + _4OA*32
+
 for room in rooms:
-    for ind, mode in enumerate(modes):
 
-        num_sources = Direct*mode_stim[ind] + MP*mode_stim[ind] + SDM*20 + _0OA*6 + _1OA*6 + _2OA*12 + _3OA*20 + _4OA*32
+    source = 0
+    xml_filename = xml_name_base + "_" + room.name + ".xml"
 
-        source = 0
-        xml_filename = xml_name_base + "_" + room.name + "_" + mode + ".xml"
+    #xml = open(os.path.join("C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
+    #xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli_EQ\\XML",xml_filename), "w+")
+    xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
 
-        #xml = open(os.path.join("C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
-        xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli_EQ\\XML",xml_filename), "w+")
-        #xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
+    xml.write("<BinauralApp>\n"
+              "\t<FrameSize>%d</FrameSize>\n"
+              "\t<ListenerPosX>0.000000000</ListenerPosX>\n"
+              "\t<ListenerPosY>0.000000000</ListenerPosY>\n"
+              "\t<ListenerPosZ>0.000000000</ListenerPosZ>\n"
+              "\t<ListenerOrX>-0.000000000</ListenerOrX>\n"
+              "\t<ListenerOrY>-0.000000000</ListenerOrY>\n"
+              "\t<ListenerOrZ>0.000000000</ListenerOrZ>\n"
+              "\t<ListenerOrW>1.000000000</ListenerOrW>\n"
+              "\t<Platform>Mac</Platform>\n"
+              "\t<OSCListenPort>12300</OSCListenPort>\n"
+              #"\t<BRIRPath>/Users/isaacengel/Documents/Audio_files/BRIR/BRIR_%s_44100Hz_0db.sofa</BRIRPath>\n"
+              #"\t<HRTFPath>/Users/isaacengel/Documents/Audio_files/HRTF/D2_44kHz_16bit_256tap_FIR_ITDextracted_norm_0dB.sofa</HRTFPath>\n"
+              "\t<ReverbOrder>%s</ReverbOrder>\n"
+              "\t<NumSources>%d</NumSources>\n" % (frame_size,reverb_order,num_sources)) # room.name,reverb_order,num_sources))
 
-        xml.write("<BinauralApp>\n"
-                  "\t<FrameSize>%d</FrameSize>\n"
-                  "\t<ListenerPosX>0.000000000</ListenerPosX>\n"
-                  "\t<ListenerPosY>0.000000000</ListenerPosY>\n"
-                  "\t<ListenerPosZ>0.000000000</ListenerPosZ>\n"
-                  "\t<ListenerOrX>-0.000000000</ListenerOrX>\n"
-                  "\t<ListenerOrY>-0.000000000</ListenerOrY>\n"
-                  "\t<ListenerOrZ>0.000000000</ListenerOrZ>\n"
-                  "\t<ListenerOrW>1.000000000</ListenerOrW>\n"
-                  "\t<Platform>Mac</Platform>\n"
-                  "\t<OSCListenPort>12300</OSCListenPort>\n"
-                  #"\t<BRIRPath>/Users/isaacengel/Documents/Audio_files/BRIR/BRIR_%s_44100Hz_0db.sofa</BRIRPath>\n"
-                  #"\t<HRTFPath>/Users/isaacengel/Documents/Audio_files/HRTF/D2_44kHz_16bit_256tap_FIR_ITDextracted_norm_0dB.sofa</HRTFPath>\n"
-                  "\t<ReverbOrder>%s</ReverbOrder>\n"
-                  "\t<NumSources>%d</NumSources>\n" % (frame_size,reverb_order,num_sources)) # room.name,reverb_order,num_sources))
+    for mode in modes:
 
         if Direct is True:
-            if mode is "Stimuli":
+            if mode is "TakeFive":
                 positions = [30, 0, 0, 0, 330]
-                names = ['Piano', 'Ride', 'Kick', 'Snare', 'Sax']
+                names = ['TakeFive_Piano', 'TakeFive_Ride', 'TakeFive_Kick', 'TakeFive_Snare', 'TakeFive_Sax']
             elif mode is "Dirac":
                 positions = [30, 0, 0, 0, 330]
                 names = ['Dirac', 'Dirac', 'Dirac', 'Dirac', 'Dirac']
+            elif mode is "Speech":
+                positions = [30]
+                names = ['Speech']
 
             location = root + "/Dry"
             distance = room.mic_distance
@@ -93,19 +99,22 @@ for room in rooms:
                 xml.write("\n")
 
         if MP is True:
-            if mode is "Stimuli":
+            if mode is "TakeFive":
                 positions = [30, 0, 0, 0, 330]
-                names = ["%s_MP_%d" % (room.name, i) for i in range(len(positions))]
             elif mode is "Dirac":
                 positions = [30, 0, 0, 0, 330]
-                names = ["%s_MP_Dirac_%d" % (room.name, i) for i in range(len(positions))]
+            elif mode is "Speech":
+                positions = [30]
+            names = ["%s_MP_%s_%d" % (room.name, mode, i) for i in range(len(positions))]
             location = root + "/MP"
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[6][0] * gain
+                vol = 10**(room.DRR[0]/20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -116,17 +125,16 @@ for room in rooms:
 
         if SDM is True:
             positions = rir.mirrored_dodec
-            if mode is "Stimuli":
-                names = ["%s_SDM_%d" % (room.name, i) for i in range(len(positions))]
-            elif mode is "Dirac":
-                names = ["%s_SDM_Dirac_%d" % (room.name, i) for i in range(len(positions))]
+            names = ["%s_SDM_%s_%d" % (room.name, mode, i) for i in range(len(positions))]
             location = root + "/SDM"
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[1][0] * gain
+                vol = 10**(room.DRR[1]/20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -137,18 +145,16 @@ for room in rooms:
 
         if _0OA is True:
             positions = rir.tetrahedron
-            if mode is "Stimuli":
-                names = ["%s_0OA_%d" % (room.name, i) for i in range(len(positions))]
-            elif mode is "Dirac":
-                names = ["%s_0OA_Dirac_%d" % (room.name, i) for i in range(len(positions))]
-
+            names = ["%s_0OA_%s_%d" % (room.name, mode, i) for i in range(len(positions))]
             location = root + "/0OA"
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[2][0] * gain
+                vol = 10**(room.DRR[2]/20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -159,18 +165,16 @@ for room in rooms:
 
         if _1OA is True:
             positions = rir.tetrahedron
-            if mode is "Stimuli":
-                names = ["%s_1OA_%d" % (room.name, i) for i in range(len(positions))]
-            elif mode is "Dirac":
-                names = ["%s_1OA_Dirac_%d" % (room.name, i) for i in range(len(positions))]
-
+            names = ["%s_1OA_%s_%d" % (room.name, mode, i) for i in range(len(positions))]
             location = root + "/1OA"
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[3][0] * gain
+                vol = 10**(room.DRR[3]/20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -181,17 +185,16 @@ for room in rooms:
 
         if _2OA is True:
             positions = rir.icosahedron
-            if mode is "Stimuli":
-                names = ["%s_2OA_%d" % (room.name, i) for i in range(len(positions))]
-            elif mode is "Dirac":
-                names = ["%s_2OA_Dirac_%d" % (room.name, i) for i in range(len(positions))]
-
+            names = ["%s_2OA_%s_%d" % (room.name, mode, i) for i in range(len(positions))]
             location = root + "/2OA"
             distance = room.mic_distance
+
             if compensated:
-                vol = room.DRR[4][0] * gain
+                vol = 10**(room.DRR[4]/20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -202,17 +205,16 @@ for room in rooms:
 
         if _3OA is True:
             positions = rir.dodecahedron
-            if mode is "Stimuli":
-                names = ["%s_3OA_%d" % (room.name, i) for i in range(len(positions))]
-            elif mode is "Dirac":
-                names = ["%s_3OA_Dirac_%d" % (room.name, i) for i in range(len(positions))]
+            names = ["%s_3OA_%s_%d" % (room.name, mode, i) for i in range(len(positions))]
             location = root + "/3OA"
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[5][0] * gain
+                vol = 10**(room.DRR[5]/20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -223,17 +225,16 @@ for room in rooms:
 
         if _4OA is True:
             positions = rir.pentakis_dodec
-            if mode is "Stimuli":
-                names = ["%s_4OA_%d" % (room.name, i) for i in range(len(positions))]
-            elif mode is "Dirac":
-                names = ["%s_4OA_Dirac_%d" % (room.name, i) for i in range(len(positions))]
+            names = ["%s_4OA_%s_%d" % (room.name, mode, i) for i in range(len(positions))]
             location = root + "/4OA"
             distance = room.mic_distance
 
             if compensated:
-                vol = room.DRR[6][0] * gain
+                vol = 10**(room.DRR[6]/20) * gain
             else:
                 vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
             vol_db = 20 * np.log10(vol)
 
             for ind, pos in enumerate(positions):
@@ -242,5 +243,5 @@ for room in rooms:
                 source += 1
                 xml.write("\n")
 
-        xml.write("</BinauralApp>")
-        xml.close()
+    xml.write("</BinauralApp>")
+    xml.close()
