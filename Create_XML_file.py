@@ -2,7 +2,7 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "PairedComp_plus6db"
+xml_name_base = "PairedComp"
 
 frame_size = 256
 reverb_order = "0D"
@@ -47,7 +47,7 @@ def write_source(file, num, pos, name, location, vol, vol_db, slider_pos=45, rev
 
 num_sources = 0
 for ind, mode in enumerate(modes):
-    num_sources += Direct*mode_stim[ind] + MP*mode_stim[ind] + SDM*20 + _0OA*6 + _1OA*6 + _2OA*12 + _3OA*20 + _4OA*32
+    num_sources += Direct*mode_stim[ind] + MP*mode_stim[ind] + SDM*20 + _0OA*6 + _1OA*6 + _2OA*12 + _3OA*20 + _4OA*32 + _1OA_s*6
 
 for room in rooms:
 
@@ -231,6 +231,26 @@ for room in rooms:
 
             if compensated:
                 vol = 10**(room.DRR[6]/20) * gain
+            else:
+                vol = gain
+            if reverbPlus6db:
+                vol = 2*vol
+            vol_db = 20 * np.log10(vol)
+
+            for ind, pos in enumerate(positions):
+                cart = rir.spherical_2_cartesian(distance, pos[1], pos[0])
+                write_source(xml, source, cart, names[ind], location, vol, vol_db)
+                source += 1
+                xml.write("\n")
+
+        if _1OA_s is True:
+            positions = rir.tetrahedron
+            names = ["%s_1OA_%s_%d" % (room.name, mode, i) for i in range(len(positions))]
+            location = root + "/1OA"
+            distance = room.mic_distance
+
+            if compensated:
+                vol = 10**(room.DRR[3]/20) * gain
             else:
                 vol = gain
             if reverbPlus6db:
