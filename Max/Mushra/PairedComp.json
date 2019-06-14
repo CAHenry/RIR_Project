@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 34.0, 79.0, 1164.0, 1007.0 ],
+		"rect" : [ 196.0, 95.0, 970.0, 870.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 9.0,
@@ -37,6 +37,116 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-164",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 3182.239014, 1700.0, 184.0, 19.0 ],
+					"saved_object_attributes" : 					{
+						"filename" : "makemessages_pairedcomp_singleroom.js",
+						"parameter_enable" : 0
+					}
+,
+					"style" : "",
+					"text" : "js makemessages_pairedcomp_singleroom"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-162",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 3158.0, 1756.0, 28.0, 19.0 ],
+					"style" : "",
+					"text" : "print"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-159",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 3311.0, 1658.0, 49.0, 19.0 ],
+					"style" : "",
+					"text" : "r plus6dB"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-154",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 914.0, 462.0, 24.0, 24.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-140",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 884.0, 368.0, 48.0, 19.0 ],
+					"presentation_rect" : [ 882.0, 368.0, 0.0, 0.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-141",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 945.0, 415.0, 29.5, 19.0 ],
+					"presentation_rect" : [ 943.0, 415.0, 0.0, 0.0 ],
+					"style" : "",
+					"text" : "0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-145",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 894.0, 415.0, 29.5, 19.0 ],
+					"presentation_rect" : [ 892.0, 415.0, 0.0, 0.0 ],
+					"style" : "",
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-148",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 914.0, 509.5, 50.0, 19.0 ],
+					"style" : "",
+					"text" : "s plus6dB"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-323",
 					"maxclass" : "comment",
@@ -373,7 +483,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3628.0, 1516.0, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "1OA"
+					"text" : "ABIR"
 				}
 
 			}
@@ -444,7 +554,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1255.0, 228.0, 128.0, 128.0 ],
+					"patching_rect" : [ 980.0, 1441.0, 128.0, 128.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 121.0, 183.0, 770.0, 118.0 ],
 					"proportion" : 0.39,
@@ -610,7 +720,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 600.5, 1476.0, 312.0, 228.0 ],
-					"pic" : "speech.png",
+					"pic" : "take five.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 1055.0, 661.0, 476.5, 366.0 ]
 				}
@@ -766,7 +876,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3443.0, 684.5, 36.5, 19.0 ],
 					"style" : "",
-					"text" : "1OA"
+					"text" : "ABIR"
 				}
 
 			}
@@ -781,7 +891,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3417.0, 663.5, 36.5, 19.0 ],
 					"style" : "",
-					"text" : "1OA"
+					"text" : "ABIR"
 				}
 
 			}
@@ -1141,7 +1251,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3390.0, 1658.0, 110.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech Trapezoid 1OA"
+					"text" : "TakeFive Trapezoid ABIR"
 				}
 
 			}
@@ -1706,24 +1816,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-182",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 3182.239014, 1699.5, 184.0, 19.0 ],
-					"saved_object_attributes" : 					{
-						"filename" : "makemessages_pairedcomp_singleroom",
-						"parameter_enable" : 0
-					}
-,
-					"style" : "",
-					"text" : "js makemessages_pairedcomp_singleroom"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-177",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -1731,7 +1823,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3466.0, 1527.760742, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech"
+					"text" : "TakeFive"
 				}
 
 			}
@@ -3822,7 +3914,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2168.5, 539.0, 114.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech"
+					"text" : "TakeFive"
 				}
 
 			}
@@ -5177,7 +5269,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1797.0, 852.0, 148.0, 19.0 ],
 					"style" : "",
-					"text" : "1OA"
+					"text" : "ABIR"
 				}
 
 			}
@@ -5264,7 +5356,7 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 789.0, 929.0, 218.0, 49.0 ],
 					"style" : "",
-					"text" : "Page 5 of 8",
+					"text" : "Page 3 of 8",
 					"varname" : "PageDisplay"
 				}
 
@@ -6138,6 +6230,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-162", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-106", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-37", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -6378,10 +6479,37 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-145", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-140", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-154", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-141", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-647", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-142", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-154", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-145", 0 ]
 				}
 
 			}
@@ -6396,7 +6524,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-182", 0 ],
+					"destination" : [ "obj-164", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-147", 0 ]
@@ -6441,6 +6569,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-148", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-154", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-153", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -6460,6 +6597,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-164", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-159", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-350", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -6473,6 +6619,15 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-161", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-106", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-164", 0 ]
 				}
 
 			}
@@ -6590,15 +6745,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-181", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-106", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-182", 0 ]
 				}
 
 			}
@@ -9182,31 +9328,31 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "BlueToggleMaskA.jpg",
-				"bootpath" : "~/Documents/maxstuffreverb/Mushra/Buttons",
+				"bootpath" : "~/RIR_Project/Max/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskB.jpg",
-				"bootpath" : "~/Documents/maxstuffreverb/Mushra/Buttons",
+				"bootpath" : "~/RIR_Project/Max/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueButtonActiveMaskNext.jpg",
-				"bootpath" : "~/Documents/maxstuffreverb/Mushra/Buttons",
+				"bootpath" : "~/RIR_Project/Max/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskPlayPause.jpg",
-				"bootpath" : "~/Documents/maxstuffreverb/Mushra/Buttons",
+				"bootpath" : "~/RIR_Project/Max/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueButtonMaskStop.jpg",
-				"bootpath" : "~/Documents/maxstuffreverb/Mushra/Buttons",
+				"bootpath" : "~/RIR_Project/Max/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
@@ -9223,25 +9369,25 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "makemessages_pairedcomp_singleroom.js",
-				"bootpath" : "~/RIR_Project/Max/Mushra",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "trapezoid pic.jpg",
+				"name" : "library pic.jpg",
 				"bootpath" : "~/RIR_Project/Max/Mushra",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "speech.png",
+				"name" : "take five.png",
 				"bootpath" : "~/RIR_Project/Max/Mushra",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "moveStaticSources.js",
+				"bootpath" : "~/RIR_Project/Max/Mushra",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "makemessages_pairedcomp_singleroom.js",
 				"bootpath" : "~/RIR_Project/Max/Mushra",
 				"type" : "TEXT",
 				"implicit" : 1

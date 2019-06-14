@@ -1,5 +1,5 @@
 
-inlets = 1;
+inlets = 2;
 outlets = 2;
 
 setinletassist(0, "msg program room condition action parameter");
@@ -9,17 +9,33 @@ setoutletassist(1, "static reverb, to second toolkit");
 var programs = ['TakeFive', 'Speech'];
 var nDirectSources =  [5, 1];
 //var rooms =  ['Library', 'Trapezoid'];// ['Trapezoid']
-var conditions = ['direct', 'MP', '1OA','1OAS'];
-var nSourcesPerCondition = [1, 1, 6, 6];
+var conditions = ['direct', '1OA','1OAS'];
+var nSourcesPerCondition = [1, 6, 6];
+var plus6db = 1;
+
+function msg_int(n) {
+	if(inlet == 1) {
+		plus6dB = n;
+		post(n,"\n");
+	}
+}
 
 function msg(program,room,condition,action,parameter) { // room has no effect here
 	if(condition=="ABIR" && (action=="focus" || (action=="mute" && parameter==0))) {
 		outlet(0,"/3DTI-OSC/environment/order 3D");
 		if(room=="Library") {
-			outlet(0,"/3DTI-OSC/environment/gain 7");
+			gain = 1;
+			if(plus6dB) {
+				gain = gain + 6;
+			}
 		} else {
-			outlet(0,"/3DTI-OSC/environment/gain 4");
+			gain = -2;
+			if(plus6dB) {
+				gain = gain + 6;
+			}
 		}
+		oscmsg = "/3DTI-OSC/environment/gain " + gain;
+		outlet(0,oscmsg);
 	}
 	sourceID = 1;
 	for(i=0; i<programs.length; i++) {
@@ -28,9 +44,6 @@ function msg(program,room,condition,action,parameter) { // room has no effect he
 				direct = 0;
 				if(k==0) { // direct
 					direct = 1;
-					nsources = nDirectSources[i];
-				}
-				if(k==1) { // MP
 					nsources = nDirectSources[i];
 				}
 				foundProgAndRoom = 0;
@@ -55,7 +68,7 @@ function msg(program,room,condition,action,parameter) { // room has no effect he
 							if(foundProgAndRoom && condition=="ABIR") {
 								outlet(0,"/3DTI-OSC/source"+sourceID+"/reverb 1");
 							}
-							if(!foundProgAndRoom || (foundProg && condition!="ABIR")) {
+							if(!foundProgAndRoom || (foundProgAndRoom && condition!="ABIR")) {
 								outlet(0,"/3DTI-OSC/source"+sourceID+"/reverb 0");
 							}
 						}

@@ -2,7 +2,7 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "PairedComp"
+xml_name_base = "0DBMP_PairedComp"
 
 frame_size = 256
 reverb_order = "0D"
@@ -30,7 +30,7 @@ _1OA_s = True
 
 gain = 1.0
 compensated = True
-reverbPlus6db = True  # whether to add 6db to all reverbs, to make the listening test easier
+reverbPlus6db = False  # whether to add 6db to all reverbs, to make the listening test easier
 
 def write_source(file, num, pos, name, location, vol, vol_db, slider_pos=45, reverb_state="Off"):
     file.write("\t<Source%d_x>%.9f</Source%d_x>\n" % (num, pos[0], num))
@@ -69,10 +69,10 @@ for room in rooms:
               "\t<ListenerOrW>1.000000000</ListenerOrW>\n"
               "\t<Platform>Mac</Platform>\n"
               "\t<OSCListenPort>12300</OSCListenPort>\n"
-              #"\t<BRIRPath>/Users/isaacengel/Documents/Audio_files/BRIR/BRIR_%s_44100Hz_0db.sofa</BRIRPath>\n"
+              #"\t<BRIRPath>/Users/isaacengel/Documents/Audio_files/BRIR/BRIR_%s_44100Hz_Normalised.sofa</BRIRPath>\n"
               #"\t<HRTFPath>/Users/isaacengel/Documents/Audio_files/HRTF/D2_44kHz_16bit_256tap_FIR_ITDextracted_norm_0dB.sofa</HRTFPath>\n"
               "\t<ReverbOrder>%s</ReverbOrder>\n"
-              "\t<NumSources>%d</NumSources>\n" % (frame_size,reverb_order,num_sources)) # room.name,reverb_order,num_sources))
+              "\t<NumSources>%d</NumSources>\n" % (frame_size,reverb_order,num_sources))
 
     for mode in modes:
 
