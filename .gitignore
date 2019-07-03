@@ -5,5 +5,8 @@ virtualenv
 RIRInterpreter
 Max/Mushra/Results/csv/
 Max/Mushra/Results/
-*.pyc
-*.csv
+*
+RIRInterpreter
+Max/Mushra/Results/csv/
+Max/Mushra/Logs/
+*
