@@ -12,15 +12,29 @@ var nDirectSources =  [5, 1];
 var conditions = ['direct', '1OA','1OAS'];
 var nSourcesPerCondition = [1, 6, 6];
 var plus6db = 1;
+var currRoom = 'Library';
 
 function msg_int(n) {
 	if(inlet == 1) {
 		plus6dB = n;
-		post(n,"\n");
+		if(currRoom=="Library") {
+			gain = 1;
+			if(plus6dB) {
+				gain = gain + 6;
+			}
+		} else {
+			gain = -2;
+			if(plus6dB) {
+				gain = gain + 6;
+			}
+		}
+		oscmsg = "/3DTI-OSC/environment/gain " + gain;
+		outlet(0,oscmsg);
 	}
 }
 
 function msg(program,room,condition,action,parameter) { // room has no effect here
+	currRoom = room; // most recent room
 	if(condition=="ABIR" && (action=="focus" || (action=="mute" && parameter==0))) {
 		outlet(0,"/3DTI-OSC/environment/order 3D");
 		if(room=="Library") {

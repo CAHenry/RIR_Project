@@ -2,31 +2,31 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "0DBMP_PairedComp"
+xml_name_base = "4OA"
 
 frame_size = 256
 reverb_order = "0D"
 
-modes = ["TakeFive","Speech"]
-mode_stim = [5,1]
+modes = ["TakeFive"]#,"Speech"]
+mode_stim = [5]#,1]
 
 # modes = ["TakeFive"]
 # mode_stim = [5]
 
 library = rir.Room("Library", 1.5, 1.2, 1.5, DRR=rir.DRR_adjustment_library)  # name, rt60, rd_ratio, mic_height, mic_distance
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2, DRR=rir.DRR_adjustment_trapezoid)
-rooms = [library, trapezoid]
+rooms = [library]#, trapezoid]
 root = "./.."
 
 Direct = True
-MP = True
+MP = False
 SDM = False
 _0OA = False
-_1OA = True
+_1OA = False
 _2OA = False
 _3OA = False
-_4OA = False
-_1OA_s = True
+_4OA = True
+_1OA_s = False
 
 gain = 1.0
 compensated = True
