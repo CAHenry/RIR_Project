@@ -2,7 +2,7 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "FullAmbi_plus6db"
+xml_name_base = "MUSHRA_0DB"
 
 frame_size = 256
 reverb_order = "0D"
@@ -26,7 +26,7 @@ _4OA = True
 
 gain = 1.0
 compensated = True
-reverbPlus6db = True  # whether to add 6db to all reverbs, to make the listening test easier
+reverbPlus6db = False  # whether to add 6db to all reverbs, to make the listening test easier
 
 def write_source(file, num, pos, name, location, vol, vol_db, slider_pos=45, reverb_state="Off"):
     file.write("\t<Source%d_x>%.9f</Source%d_x>\n" % (num, pos[0], num))
@@ -48,8 +48,8 @@ for ind, mode in enumerate(modes):
 xml_filename = xml_name_base + ".xml"
 
 # xml = open(os.path.join("C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
-# xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli_EQ\\XML", xml_filename), "w+")
-xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
+xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
+#xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
 
 xml.write("<BinauralApp>\n"
           "\t<FrameSize>%d</FrameSize>\n"

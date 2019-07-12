@@ -18,12 +18,12 @@ function msg_int(n) {
 	if(inlet == 1) {
 		plus6dB = n;
 		if(currRoom=="Library") {
-			gain = 1;
+			gain = 0;
 			if(plus6dB) {
 				gain = gain + 6;
 			}
 		} else {
-			gain = -2;
+			gain = 0;
 			if(plus6dB) {
 				gain = gain + 6;
 			}
@@ -38,12 +38,12 @@ function msg(program,room,condition,action,parameter) { // room has no effect he
 	if(condition=="ABIR" && (action=="focus" || (action=="mute" && parameter==0))) {
 		outlet(0,"/3DTI-OSC/environment/order 3D");
 		if(room=="Library") {
-			gain = 1;
+			gain = 0;
 			if(plus6dB) {
 				gain = gain + 6;
 			}
 		} else {
-			gain = -2;
+			gain = 0;
 			if(plus6dB) {
 				gain = gain + 6;
 			}

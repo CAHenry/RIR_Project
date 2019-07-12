@@ -2,31 +2,34 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "4OA"
+xml_name_base = "0OA"
 
 frame_size = 256
 reverb_order = "0D"
 
-modes = ["TakeFive"]#,"Speech"]
-mode_stim = [5]#,1]
+# modes = ["TakeFive","Speech"]
+# mode_stim = [5,1]
 
 # modes = ["TakeFive"]
 # mode_stim = [5]
 
+modes = ["Dirac1"]
+mode_stim = [1]
+
 library = rir.Room("Library", 1.5, 1.2, 1.5, DRR=rir.DRR_adjustment_library)  # name, rt60, rd_ratio, mic_height, mic_distance
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2, DRR=rir.DRR_adjustment_trapezoid)
-rooms = [library]#, trapezoid]
+rooms = [library, trapezoid]
 root = "./.."
 
-Direct = True
-MP = False
-SDM = False
-_0OA = False
-_1OA = False
-_2OA = False
-_3OA = False
-_4OA = True
-_1OA_s = False
+Direct =    True
+MP =        False
+SDM =       False
+_0OA =      True
+_1OA =      False
+_2OA =      False
+_3OA =      False
+_4OA =      False
+_1OA_s =    False
 
 gain = 1.0
 compensated = True
@@ -55,8 +58,8 @@ for room in rooms:
     xml_filename = xml_name_base + "_" + room.name + ".xml"
 
     #xml = open(os.path.join("C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
-    #xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli_EQ\\XML",xml_filename), "w+")
-    xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
+    xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli\\XML",xml_filename), "w+")
+    #xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
 
     xml.write("<BinauralApp>\n"
               "\t<FrameSize>%d</FrameSize>\n"
@@ -83,6 +86,9 @@ for room in rooms:
             elif mode is "Dirac":
                 positions = [30, 0, 0, 0, 330]
                 names = ['Dirac', 'Dirac', 'Dirac', 'Dirac', 'Dirac']
+            elif mode is "Dirac1":
+                positions = [0]
+                names = ['Dirac']
             elif mode is "Speech":
                 positions = [30]
                 names = ['Speech']
@@ -103,6 +109,8 @@ for room in rooms:
                 positions = [30, 0, 0, 0, 330]
             elif mode is "Dirac":
                 positions = [30, 0, 0, 0, 330]
+            elif mode is "Dirac1":
+                positions = [0]
             elif mode is "Speech":
                 positions = [30]
             names = ["%s_MP_%s_%d" % (room.name, mode, i) for i in range(len(positions))]

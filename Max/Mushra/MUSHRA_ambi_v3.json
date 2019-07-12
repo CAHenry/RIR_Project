@@ -590,7 +590,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1961.5, 1921.002563, 102.0, 19.0 ],
 					"style" : "",
-					"text" : "38.064 nextPage cr"
+					"text" : "0. rate A 0 cr"
 				}
 
 			}
@@ -2902,6 +2902,7 @@
 					"bgcolor" : [ 0.439216, 0.74902, 0.254902, 1.0 ],
 					"fontname" : "Arial",
 					"fontsize" : 36.0,
+					"hidden" : 1,
 					"id" : "obj-352",
 					"linecount" : 2,
 					"maxclass" : "comment",
@@ -3114,9 +3115,9 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 996.0, 821.0, 153.0, 50.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1350.0, 255.0, 204.0, 37.0 ],
+					"presentation_rect" : [ 1350.0, 255.0, 205.0, 37.0 ],
 					"style" : "",
-					"text" : "bigtest",
+					"text" : "XX",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
@@ -12283,7 +12284,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-326", 0 ],
+					"destination" : [ "obj-260", 0 ],
 					"source" : [ "obj-258", 0 ]
 				}
 

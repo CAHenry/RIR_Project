@@ -58,7 +58,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2178.5, 1875.336548, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "\"rate 0\""
+					"text" : "\"rate 0.00\""
 				}
 
 			}
@@ -242,7 +242,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1961.5, 1921.002563, 102.0, 19.0 ],
 					"style" : "",
-					"text" : "22.46 nextPage cr"
+					"text" : "47.782 pause cr"
 				}
 
 			}
@@ -2513,6 +2513,7 @@
 					"bgcolor" : [ 0.439216, 0.74902, 0.254902, 1.0 ],
 					"fontname" : "Arial",
 					"fontsize" : 36.0,
+					"hidden" : 1,
 					"id" : "obj-173",
 					"linecount" : 2,
 					"maxclass" : "comment",
@@ -2808,7 +2809,7 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 1059.0, 279.0, 370.0, 34.0 ],
 					"style" : "",
-					"text" : "Large and spacious room (library)"
+					"text" : "Small meeting room"
 				}
 
 			}
@@ -2821,7 +2822,7 @@
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 3182.239014, 1700.0, 184.0, 19.0 ],
 					"saved_object_attributes" : 					{
-						"filename" : "makemessages_pairedcomp_singleroom",
+						"filename" : "makemessages_pairedcomp_singleroom.js",
 						"parameter_enable" : 0
 					}
 ,
@@ -3235,7 +3236,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3628.0, 1516.0, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "1OAS"
+					"text" : "ABIR"
 				}
 
 			}
@@ -3459,7 +3460,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 600.5, 1476.0, 312.0, 228.0 ],
-					"pic" : "speech.png",
+					"pic" : "take five.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 1049.0, 602.0, 476.5, 366.0 ]
 				}
@@ -3505,7 +3506,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 220.5, 1476.0, 358.5, 228.0 ],
-					"pic" : "library pic.jpg",
+					"pic" : "trapezoid pic.jpg",
 					"presentation" : 1,
 					"presentation_rect" : [ 1049.0, 267.0, 476.5, 320.0 ]
 				}
@@ -3615,7 +3616,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3443.0, 684.5, 36.5, 19.0 ],
 					"style" : "",
-					"text" : "ABIR"
+					"text" : "1OAS"
 				}
 
 			}
@@ -3630,7 +3631,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3417.0, 663.5, 36.5, 19.0 ],
 					"style" : "",
-					"text" : "ABIR"
+					"text" : "1OAS"
 				}
 
 			}
@@ -3990,7 +3991,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3390.0, 1658.0, 110.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech Library 1OAS"
+					"text" : "TakeFive Trapezoid ABIR"
 				}
 
 			}
@@ -4562,7 +4563,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3466.0, 1527.760742, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech"
+					"text" : "TakeFive"
 				}
 
 			}
@@ -6144,7 +6145,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2168.5, 539.0, 114.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech"
+					"text" : "TakeFive"
 				}
 
 			}
@@ -7484,7 +7485,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1797.0, 852.0, 148.0, 19.0 ],
 					"style" : "",
-					"text" : "1OA"
+					"text" : "ABIR"
 				}
 
 			}
@@ -7499,7 +7500,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1763.0, 831.0, 137.0, 19.0 ],
 					"style" : "",
-					"text" : "1OAS"
+					"text" : "ABIR"
 				}
 
 			}
@@ -8661,7 +8662,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-145", 0 ],
+					"destination" : [ "obj-141", 0 ],
 					"source" : [ "obj-140", 0 ]
 				}
 
@@ -11782,14 +11783,14 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "library pic.jpg",
+				"name" : "trapezoid pic.jpg",
 				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "speech.png",
+				"name" : "take five.png",
 				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "PNG ",

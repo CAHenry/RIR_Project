@@ -13,16 +13,17 @@ library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_heig
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 rooms = [library, trapezoid]
 
-# root_dir = "C:\\Users\\Isaac\\Audio_files"
-root_dir = "/Users/isaacengel/Documents/Audio_files"
+root_dir = "C:\\Users\\Isaac\\Audio_files"
+#root_dir = "/Users/isaacengel/Documents/Audio_files"
 stimuli_dir = os.path.join(root_dir, "Stimuli", "Dry")
 
 apply_filter = True
-methods_to_filter = ["0OA","1OA","2OA","3OA","4OA","MP"]
+methods_to_filter = ["0OA","1OA","2OA","3OA","4OA","RVL_4OA"]
 # Filter: low shelf, g=-15db, fc=1khz from https://arachnoid.com/BiQuadDesigner/
 sos = [0.91451797, -1.70941432, 0.80225341, 1, -1.69240694, 0.73377875]
 
-modes = ["TakeFive","Dirac","Speech"]
+modes = ["TakeFive","Speech","Dirac1"]
+#modes = ["Dirac1"]
 
 for mode in modes:
 
@@ -32,13 +33,16 @@ for mode in modes:
 
     if mode is "TakeFive":
         stimuli_pos = [30, 0, 0, 0, 330]
-        stimuli_name = ['Piano.wav', 'Ride.wav', 'Kick.wav', 'Snare.wav', 'Sax.wav']
+        stimuli_name = ['TakeFive_Piano.wav', 'TakeFive_Ride.wav', 'TakeFive_Kick.wav', 'TakeFive_Snare.wav', 'TakeFive_Sax.wav']
     elif mode is "Dirac":
         stimuli_pos = [30, 0, 0, 0, 330]
         stimuli_name = ['Dirac.wav', 'Dirac.wav', 'Dirac.wav', 'Dirac.wav', 'Dirac.wav']
     elif mode is "Speech":
         stimuli_pos = [30]
         stimuli_name = ['Speech.wav']
+    elif mode is "Dirac1":
+        stimuli_pos = [0]
+        stimuli_name = ['Dirac.wav']
     else:
         stimuli_pos = []
         stimuli_name = []
@@ -50,12 +54,16 @@ for mode in modes:
     _2OA = rir.Method("2OA", 12)
     _3OA = rir.Method("3OA", 20)
     _4OA = rir.Method("4OA", 32)
-    MP = rir.Method("MP", len(stimuli_pos))
-    methods = [_0OA,_1OA,_2OA,_3OA,_4OA,MP]
+    RVL_4OA = rir.Method("RVL_4OA", 32)
+    methods = [_0OA,_1OA,_2OA,_3OA,_4OA]
+    # methods = [RVL_4OA]
 
     for method in methods:
 
         output_dir = os.path.join(root_dir, "Stimuli", method.name)
+        if not os.path.isdir(output_dir):
+            print("Creating directory",output_dir,"...")
+            os.mkdir(output_dir)
 
         for room in rooms:
             RIR_dir = os.path.join(root_dir, "Impulses", room.name, "Eigenmike", method.name)
@@ -117,6 +125,8 @@ for mode in modes:
                     filename = os.path.join(output_dir, room.name + "_" + method.name + "_Dirac_" + str(ind) + ".wav")
                 elif mode is "Speech":
                     filename = os.path.join(output_dir, room.name + "_" + method.name + "_Speech_" + str(ind) + ".wav")
+                elif mode is "Dirac1":
+                    filename = os.path.join(output_dir, room.name + "_" + method.name + "_Dirac1_" + str(ind) + ".wav")
 
                 sf.write(filename, channel, fs)
 
@@ -129,9 +139,10 @@ for mode in modes:
     counter = 0
     for folder, subs, files in os.walk(all_stimuli_dir):
         for filename in files:
-            if ".wav" in filename and mode in filename:
+            if ".wav" in filename and mode in filename and "RVL" not in filename: # NOTE: the RVL bit is for when we are doing normal Ambi
                 counter = counter + 1
                 full_path = os.path.join(folder, filename)
+                #print("Zero-padding", full_path,"...")
                 data, fs = sf.read(full_path)
                 datalen = data.shape[0]
                 padded_data = np.zeros([max_len_file])
