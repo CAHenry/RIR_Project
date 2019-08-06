@@ -22,57 +22,59 @@ kemar = rir.Measurement("Kemar", ["0", "90", "180", "270", "top", "bottom"], rir
 eigenmike = rir.Measurement("Eigenmike", [str(x) for x in range(0, 360, 10)], rir.eigenmike_capsules)
 methods = [kemar, eigenmike]
 
-root_dir = "C:\\Users\\Isaac\\Audio_files"
+root_dir = "C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files"
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Convolve every measured sweep with the inverse and trim the first ten seconds (silence)
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Inverse sweep - Farina's method
-# inverse, fs = sf.read(os.path.join(root_dir, "Inverse.wav"))
-#
-# for room in rooms:
-#
-#     for method in methods:
-#         # Create file directories
-#         sweep_dir = os.path.join(root_dir, "Sweeps", room.name, method.name)
-#         if not os.path.isdir(sweep_dir):
-#             os.makedirs(sweep_dir)
-#
-#         impulse_dir = os.path.join(root_dir, "Impulses", room.name, method.name, "raw")
-#         if not os.path.isdir(impulse_dir):
-#             os.makedirs(impulse_dir)
-#
-#
-#         # the highest value across all measurements within the room/method combo
-#         measurement_max = 0
-#
-#         for file_name in os.listdir(sweep_dir):
-#
-#             sweeps, fs = sf.read(os.path.join(sweep_dir, file_name))
-#             impulses = []
-#
-#             # Convolve each channel by the inverse and check if it has the highest amplitude so far
-#             for i, sweep in enumerate(sweeps.T):
-#                 impulse = signal.fftconvolve(sweep, inverse)
-#                 impulses.append(impulse)
-#                 file_max = impulse.max()
-#                 if file_max > measurement_max:
-#                     measurement_max = file_max
-#
-#             impulses = np.array(impulses).T
-#             impulse_file_name = file_name.replace("Sweep", "Impulse")
-#             # write each file using scipy because it doesn't clip the data - sf.write breaks this!
-#             print(os.path.join(impulse_dir, impulse_file_name))
-#             scipy.io.wavfile.write(os.path.join(impulse_dir, impulse_file_name), 44100, impulses)
-#
-#         # Normalise each file, delete the first ten seconds and rewrite
-#         for file_name in os.listdir(impulse_dir):
-#             impulses, fs = sf.read(os.path.join(impulse_dir, file_name))
-#             impulses = np.array(impulses / measurement_max)
-#             impulses = impulses[10 * fs:, :]
-#             print(os.path.join(impulse_dir, file_name))
-#             sf.write(os.path.join(impulse_dir, file_name), impulses, fs)
+inverse, fs = sf.read(os.path.join(root_dir, "Inverse.wav"))
+
+for room in rooms:
+
+    for method in methods:
+        # Create file directories
+        sweep_dir = os.path.join(root_dir, "Sweeps", room.name, method.name)
+        if not os.path.isdir(sweep_dir):
+            os.makedirs(sweep_dir)
+
+        impulse_dir = os.path.join(root_dir, "Impulses", room.name, method.name, "raw")
+        if not os.path.isdir(impulse_dir):
+            os.makedirs(impulse_dir)
+
+
+        # the highest value across all measurements within the room/method combo
+        measurement_max = 0
+
+        for file_name in os.listdir(sweep_dir):
+
+            sweeps, fs = sf.read(os.path.join(sweep_dir, file_name))
+            impulses = []
+
+            # Convolve each channel by the inverse and check if it has the highest amplitude so far
+            for i, sweep in enumerate(sweeps.T):
+                impulse = signal.fftconvolve(sweep, inverse)
+                impulses.append(impulse)
+                file_max = impulse.max()
+                if file_max > measurement_max:
+                    measurement_max = file_max
+
+            impulses = np.array(impulses).T
+            impulse_file_name = file_name.replace("Sweep", "Impulse")
+            # write each file using scipy because it doesn't clip the data - sf.write breaks this!
+            print(os.path.join(impulse_dir, impulse_file_name))
+            scipy.io.wavfile.write(os.path.join(impulse_dir, impulse_file_name), 44100, impulses)
+
+        # Normalise each file, delete the first ten seconds and rewrite
+        for file_name in os.listdir(impulse_dir):
+            impulses, fs = sf.read(os.path.join(impulse_dir, file_name))
+            impulses = np.array(impulses / measurement_max)
+            impulses = impulses[10 * fs:, :]
+            print(os.path.join(impulse_dir, file_name))
+            # sf.write(os.path.join(impulse_dir, file_name), impulses, fs)
+            scipy.io.wavfile.write(os.path.join(impulse_dir, file_name), fs, impulses)
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Trim each sweep, Direct sound to end of RT60(user input). Direct sound is then replaced with zero padding
@@ -156,4 +158,6 @@ for room in rooms:
                 output[:][-i] *= ham[i]
 
             print(os.path.join(trimmed_dir, file_name))
-            sf.write(os.path.join(trimmed_dir, file_name), output, fs)
+
+            # sf.write(os.path.join(trimmed_dir, file_name), output, fs)
+            scipy.io.wavfile.write(os.path.join(trimmed_dir, file_name), fs, output)

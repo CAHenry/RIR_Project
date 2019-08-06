@@ -5,8 +5,3 @@ virtualenv
 RIRInterpreter
 Max/Mushra/Results/csv/
 Max/Mushra/Results/
-*
-RIRInterpreter
-Max/Mushra/Results/csv/
-Max/Mushra/Logs/
-*

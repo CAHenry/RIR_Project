@@ -13,7 +13,7 @@ library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_heig
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 rooms = [library, trapezoid]
 
-root_dir = "C:\\Users\\Isaac\\Audio_files"
+root_dir = "C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files"
 #root_dir = "/Users/isaacengel/Documents/Audio_files"
 stimuli_dir = os.path.join(root_dir, "Stimuli", "Dry")
 
@@ -23,7 +23,7 @@ methods_to_filter = ["0OA","1OA","2OA","3OA","4OA","RVL_4OA"]
 sos = [0.91451797, -1.70941432, 0.80225341, 1, -1.69240694, 0.73377875]
 
 modes = ["TakeFive","Speech","Dirac1"]
-#modes = ["Dirac1"]
+# modes = ["Dirac1"]
 
 for mode in modes:
 
@@ -60,7 +60,7 @@ for mode in modes:
 
     for method in methods:
 
-        output_dir = os.path.join(root_dir, "Stimuli", method.name)
+        output_dir = os.path.join(root_dir, "Stimuli_24", method.name)
         if not os.path.isdir(output_dir):
             print("Creating directory",output_dir,"...")
             os.mkdir(output_dir)
@@ -118,7 +118,7 @@ for mode in modes:
 
                 if max(channel) >= 1:
                     print("clipping")
-                channel = (channel * (2 ** 15 - 1)).astype(np.int16)
+
                 if mode is "TakeFive":
                     filename = os.path.join(output_dir, room.name + "_" + method.name + "_TakeFive_" + str(ind) + ".wav")
                 elif mode is "Dirac":
@@ -128,7 +128,7 @@ for mode in modes:
                 elif mode is "Dirac1":
                     filename = os.path.join(output_dir, room.name + "_" + method.name + "_Dirac1_" + str(ind) + ".wav")
 
-                sf.write(filename, channel, fs)
+                sf.write(filename, channel, fs, subtype='PCM_24', format='WAV')
 
     # Zero-pad all the stimuli so all have the same length as the longest one
     print("Maximum length is", max_len_file)
@@ -147,7 +147,8 @@ for mode in modes:
                 datalen = data.shape[0]
                 padded_data = np.zeros([max_len_file])
                 padded_data[0:datalen] = data
-                sf.write(full_path, padded_data, fs)
+                sf.write(full_path, padded_data, fs, subtype='PCM_24', format='WAV')
+
 
     print("Finished zero-padding", counter, mode, "files.")
 
