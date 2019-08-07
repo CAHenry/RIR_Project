@@ -22,7 +22,7 @@ kemar = rir.Measurement("Kemar", ["0", "90", "180", "270", "top", "bottom"], rir
 eigenmike = rir.Measurement("Eigenmike", [str(x) for x in range(0, 360, 10)], rir.eigenmike_capsules)
 methods = [kemar, eigenmike]
 
-root_dir = "C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files"
+root_dir = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Convolve every measured sweep with the inverse and trim the first ten seconds (silence)
@@ -39,7 +39,7 @@ for room in rooms:
         if not os.path.isdir(sweep_dir):
             os.makedirs(sweep_dir)
 
-        impulse_dir = os.path.join(root_dir, "Impulses", room.name, method.name, "raw")
+        impulse_dir = os.path.join(root_dir, "Impulses_07_08", room.name, method.name, "raw")
         if not os.path.isdir(impulse_dir):
             os.makedirs(impulse_dir)
 
@@ -103,10 +103,10 @@ for room in rooms:
 
     for method in methods:
         # create directory
-        raw_dir = os.path.join(root_dir, "Impulses", room.name, method.name, "raw")
+        raw_dir = os.path.join(root_dir, "Impulses_07_08", room.name, method.name, "raw")
         if not os.path.isdir(raw_dir):
             os.makedirs(raw_dir)
-        trimmed_dir = os.path.join(root_dir, "Impulses", room.name, method.name, "trimmed")
+        trimmed_dir = os.path.join(root_dir, "Impulses_07_08", room.name, method.name, "trimmed")
         if not os.path.isdir(trimmed_dir):
             os.makedirs(trimmed_dir)
 
