@@ -99,16 +99,11 @@ for mode in modes:
 
                 RIR = RIR.T
 
-                for channel in range(method.channels):
-                    if method is _0OA:
-                        LS = RIR[0]
-                    else:
-                        LS = RIR[channel]
-
+                for RIR_ind, LS in enumerate(RIR):
                     if len(LS) < max_len_RIR:
                         padding = np.zeros(max_len_RIR - len(LS))
                         LS = np.concatenate([LS, padding])
-                    convolved[file_ind][channel] = signal.fftconvolve(dry / len(stimuli), LS)
+                    convolved[file_ind][RIR_ind] = signal.fftconvolve(dry / len(stimuli), LS)
 
             output = np.sum(convolved, 0) # Sum the first dimension (each stimulus) such that there is one file per LS
 
