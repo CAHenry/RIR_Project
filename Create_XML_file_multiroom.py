@@ -2,7 +2,7 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "MUSHRA_0DB"
+xml_name_base = "MUSHRA_0DB_0808"
 
 frame_size = 256
 reverb_order = "0D"
@@ -48,7 +48,7 @@ for ind, mode in enumerate(modes):
 xml_filename = xml_name_base + ".xml"
 
 # xml = open(os.path.join("C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
-xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
+xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files_07_08\\Stimuli\\XML", xml_filename), "w+")
 #xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
 
 xml.write("<BinauralApp>\n"

@@ -2,19 +2,19 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "0OA"
+xml_name_base = "PairedComp_0808"
 
 frame_size = 256
 reverb_order = "0D"
 
-# modes = ["TakeFive","Speech"]
-# mode_stim = [5,1]
+modes = ["TakeFive","Speech"]
+mode_stim = [5,1]
 
 # modes = ["TakeFive"]
 # mode_stim = [5]
 
-modes = ["Dirac1"]
-mode_stim = [1]
+# modes = ["Dirac1"]
+# mode_stim = [1]
 
 library = rir.Room("Library", 1.5, 1.2, 1.5, DRR=rir.DRR_adjustment_library)  # name, rt60, rd_ratio, mic_height, mic_distance
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2, DRR=rir.DRR_adjustment_trapezoid)
@@ -24,12 +24,12 @@ root = "./.."
 Direct =    True
 MP =        False
 SDM =       False
-_0OA =      True
-_1OA =      False
+_0OA =      False
+_1OA =      True
 _2OA =      False
 _3OA =      False
 _4OA =      False
-_1OA_s =    False
+_1OA_s =    True
 
 gain = 1.0
 compensated = True
@@ -58,7 +58,7 @@ for room in rooms:
     xml_filename = xml_name_base + "_" + room.name + ".xml"
 
     #xml = open(os.path.join("C:\\Users\\craig\\Documents\\RIR_Project\\Audio_files\\Stimuli\\XML", xml_filename), "w+")
-    xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files\\Stimuli\\XML",xml_filename), "w+")
+    xml = open(os.path.join("C:\\Users\\Isaac\\Audio_files_07_08\\Stimuli\\XML",xml_filename), "w+")
     #xml = open(os.path.join("/Users/isaacengel/Documents/Audio_files/Stimuli/XML", xml_filename), "w+")
 
     xml.write("<BinauralApp>\n"
