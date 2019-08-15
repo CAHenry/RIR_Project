@@ -172,41 +172,27 @@ eigenmike_capsules = [[0.042, 21, 0],
 kemar_capsules = [[0.08, 0, 90],
                   [0.08, 0, 270]]
 
-# values *IN DB* below set on June 12, from the normalizeLoudness.m script, using
+# values *IN DB* below, obtained on 07/08/2019 from the normalizeLoudness.m script, using
 # 3DTI recordings which were equalized with a lo-shelf filter, and normalising
 # to the DRR of a frontal kemar BRIR
-# oldDRR_adjustment_trapezoid =  [-1.7012, # MP, not using it
-#                                  0.0000, # SDM, not using it for now
-#                                  2.3227, # 0OA
-#                                  0.4008, # 1OA
-#                                 -0.1243, # 2OA
-#                                 -0.2331, # 3OA
-#                                 -0.3740] # 4OA
-#
-# oldDRR_adjustment_library =[-1.6868, # MP, not using it
-#                              0.0000, # SDM, not using it for now
-#                              2.3912, # 0OA
-#                              1.3500, # 1OA
-#                              0.8494, # 2OA
-#                              0.5971, # 3OA
-#                             -0.9917] # 4OA , added 2dB because it was noticeably quieter than the rest
 
 # with the new stimuli, adjusted for the DRR (first number) and then loudness (second number added to the first)
+# this was adjusted for the new batch 24bit stimuli which for some reason was quieter (third number added)
 DRR_adjustment_trapezoid = [     0, # MP, not using it
                                  0, # SDM, not using it for now
-                                 5.945 - 2.6976, # 0OA
-                                 1.7694 - 0.31334, # 1OA
-                                 0.95527 + 0.19137, # 2OA
-                                 1.7162 - 0.055399, # 3OA
-                                 0.99568] # 4OA
+                                 5.945 - 2.6976 + 6.018, # 0OA
+                                 1.7694 - 0.31334 + 6.0407, # 1OA
+                                 0.95527 + 0.19137 + 5.9434, # 2OA
+                                 1.7162 - 0.055399 + 5.3892, # 3OA
+                                 0.99568 + 5.9478] # 4OA
 
 DRR_adjustment_library =   [    0, # MP, not using it
                                 0, # SDM, not using it for now
-                                4.1347 - 3.1218, # 0OA
-                                0.54847 - 0.62083, # 1OA
-                                -0.90218 + 0.46385, # 2OA
-                                -0.17215 - 0.69959, # 3OA
-                                -1.2648] # 4OA
+                                4.1347 - 3.1218 + 5.0346, # 0OA
+                                0.54847 - 0.62083 + 5.0624, # 1OA
+                                -0.90218 + 0.46385 + 5.094, # 2OA
+                                -0.17215 - 0.69959 + 5.3218, # 3OA
+                                -1.2648 + 5.8602] # 4OA
 
 # Loudspeaker configurations in spherical coordinates [azimuth,elevation], in degrees
 tetrahedron =    [[0, 0],

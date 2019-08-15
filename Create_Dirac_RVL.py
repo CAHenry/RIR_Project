@@ -13,9 +13,9 @@ library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_heig
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 rooms = [library, trapezoid]
 
-# root_dir = "C:\\Users\\Isaac\\Audio_files"
-root_dir = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
-stimuli_dir = os.path.join(root_dir, "Stimuli_07_08", "Dry")
+root_dir = "C:\\Users\\Isaac\\Audio_files_07_08"
+#root_dir = "/Users/isaacengel/Documents/Audio_files"
+stimuli_dir = os.path.join(root_dir, "Stimuli", "Dry")
 
 apply_filter = False
 # Filter: low shelf, g=-15db, fc=1khz from https://arachnoid.com/BiQuadDesigner/
