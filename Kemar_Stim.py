@@ -9,23 +9,17 @@ from scipy import signal
 # Define directory, rooms and techniques
 # ----------------------------------------------------------------------------------------------------------------------
 
-library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_height, mic_distance
-trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 lab = rir.Room("Audiolab", 0.3, 1.2, 1.3)
-# rooms = [library, trapezoid]
 rooms = [lab]
 
 root_dir = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
-#root_dir = "/Users/isaacengel/Documents/Audio_files"
 stimuli_dir = os.path.join(root_dir, "Stimuli", "Dry")
 
-apply_filter = True
-methods_to_filter = ["0OA", "1OA", "2OA", "3OA", "4OA", "RVL_4OA"]
+apply_filter = False
 # Filter: low shelf, g=-15db, fc=1khz from https://arachnoid.com/BiQuadDesigner/
 sos = [0.91451797, -1.70941432, 0.80225341, 1, -1.69240694, 0.73377875]
 
-modes = ["TakeFive", "Speech", "Dirac1"]
-# modes = ["Dirac1"]
+modes = ["TakeFive", "Speech"]
 
 for mode in modes:
 
@@ -34,31 +28,19 @@ for mode in modes:
     print("Creating", mode, "stimuli...")
 
     if mode is "TakeFive":
-        stimuli_pos = [30, 0, 0, 0, 330]
-        stimuli_name = ['TakeFive_Piano.wav', 'TakeFive_Ride.wav', 'TakeFive_Kick.wav', 'TakeFive_Snare.wav', 'TakeFive_Sax.wav']
-    elif mode is "Dirac":
-        stimuli_pos = [30, 0, 0, 0, 330]
-        stimuli_name = ['Dirac.wav', 'Dirac.wav', 'Dirac.wav', 'Dirac.wav', 'Dirac.wav']
+        stimuli_pos = ["0"]
+        stimuli_name = ['TakeFive_Piano.wav']
     elif mode is "Speech":
-        stimuli_pos = [30]
+        stimuli_pos = ["0"]
         stimuli_name = ['Speech.wav']
-    elif mode is "Dirac1":
-        stimuli_pos = [0]
-        stimuli_name = ['Dirac.wav']
     else:
         stimuli_pos = []
         stimuli_name = []
         quit()
 
-    # SDM = rir.Method("SDM", 20)
-    _0OA = rir.Method("0OA", 6)
-    _1OA = rir.Method("1OA", 6)
-    _2OA = rir.Method("2OA", 12)
-    _3OA = rir.Method("3OA", 20)
-    _4OA = rir.Method("4OA", 32)
-    RVL_4OA = rir.Method("RVL_4OA", 32)
-    methods = [_0OA,_1OA,_2OA,_3OA,_4OA]
-    # methods = [RVL_4OA]
+    earcanal = rir.Method("Earcanal", 2)
+    no_earcanal = rir.Method("No_Earcanal", 2)
+    methods = [earcanal, no_earcanal]
 
     stimuli_dir = output_dir = os.path.join(root_dir, "Stimuli_07_08")
     if not os.path.isdir(stimuli_dir):
@@ -73,7 +55,7 @@ for mode in modes:
             os.mkdir(output_dir)
 
         for room in rooms:
-            RIR_dir = os.path.join(root_dir, "Impulses_07_08", room.name, "Eigenmike", method.name)
+            RIR_dir = os.path.join(root_dir, "Impulses_07_08", room.name, "Kemar", method.name)
             if not os.path.isdir(RIR_dir):
                 print("Creating directory", RIR_dir, "...")
                 os.mkdir(RIR_dir)
@@ -112,8 +94,7 @@ for mode in modes:
                 max_len_file = output.shape[1]
 
             for ind, channel in enumerate(output):
-                if apply_filter and method.name in methods_to_filter:
-                    channel = signal.sosfilt(sos, channel)
+
 
                 if max(channel) >= 1:
                     print("clipping")

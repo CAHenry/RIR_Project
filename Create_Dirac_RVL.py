@@ -13,9 +13,9 @@ library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_heig
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 rooms = [library, trapezoid]
 
-root_dir = "C:\\Users\\Isaac\\Audio_files"
-#root_dir = "/Users/isaacengel/Documents/Audio_files"
-stimuli_dir = os.path.join(root_dir, "Stimuli", "Dry")
+# root_dir = "C:\\Users\\Isaac\\Audio_files"
+root_dir = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
+stimuli_dir = os.path.join(root_dir, "Stimuli_07_08", "Dry")
 
 apply_filter = False
 # Filter: low shelf, g=-15db, fc=1khz from https://arachnoid.com/BiQuadDesigner/
@@ -23,9 +23,9 @@ sos = [0.91451797, -1.70941432, 0.80225341, 1, -1.69240694, 0.73377875]
 
 mode = "Dirac1"
 
-max_len_file = 0 # maximum file length after convolving, for zero padding
+max_len_file = 0  # maximum file length after convolving, for zero padding
 
-print("Creating",mode,"stimuli...")
+print("Creating", mode, "stimuli...")
 
 stimuli_pos_vec = [[0], [90], [180], [270], ['bottom'], ['top']]
 stimuli_name = ['Dirac.wav']
@@ -33,13 +33,13 @@ stimuli_name = ['Dirac.wav']
 RVL_4OA = rir.Method("RVL_4OA", 32)
 method = RVL_4OA
 
-output_dir = os.path.join(root_dir, "Stimuli", method.name)
+output_dir = os.path.join(root_dir, "Stimuli_07_08", method.name)
 if not os.path.isdir(output_dir):
-    print("Creating directory",output_dir,"...")
+    print("Creating directory", output_dir, "...")
     os.mkdir(output_dir)
 
 for room in rooms:
-    RIR_dir = os.path.join(root_dir, "Impulses", room.name, "Eigenmike", method.name)
+    RIR_dir = os.path.join(root_dir, "Impulses_07_08", room.name, "Eigenmike", method.name)
     max_len_RIR = 0
 
     for stimuli_pos in stimuli_pos_vec:

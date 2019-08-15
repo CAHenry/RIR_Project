@@ -3,21 +3,21 @@ import os
 import scipy.io.wavfile
 
 # Define room name, technique being recorded, the angle or position of the LS and the root dir containing the sweep
-room_name = "turret"
-technique = "Kemar"
-identifier = "test"
-root = "C:\\Users\\craig\\Documents\\RIR_Project\\RIRs"
+room_name = "Trapezoid"
+technique = "RVL"
+identifier = "top"
+root = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
 
 # Creates the filepaths and directories needed
-directory = os.path.join(root, room_name, "Sweeps", technique)
+directory = os.path.join(root, "Sweeps_09_08", room_name, technique)
 if not os.path.isdir(directory):
     os.makedirs(directory)
-file_name = room_name + technique + identifier + "sweep.wav"
+file_name = room_name + "_" + technique + "_" + identifier + "_" + "Sweep.wav"
 file_path = os.path.join(directory, file_name)
 
 
 def get_overwrite():
-    ans = raw_input("This file already exists, overwrite? (y/n): ")
+    ans = input("This file already exists, overwrite? (y/n): ")
     if ans == "n":
         quit()
     elif ans != "y":
@@ -34,7 +34,7 @@ fs, sweep = scipy.io.wavfile.read(os.path.join(root, "Sweep.wav"))
 
 # Settings for the audio input/output
 sd.default.samplerate = fs
-if technique is 'Kemar':
+if technique is 'Kemar' or 'RVL':
     sd.default.device = 'MOTU Audio ASIO, ASIO'
     print(sd.query_devices())
     sd.default.channels = [2, 2]

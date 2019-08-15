@@ -16,11 +16,22 @@ import scipy.io.wavfile
 
 library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, mic_height, mic_distance
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
+# lab = rir.Room("Audiolab", 0.9, 1.2, 1.3)
 rooms = [library, trapezoid]
+# rooms = [lab]
 
-kemar = rir.Measurement("Kemar", ["0", "90", "180", "270", "top", "bottom"], rir.kemar_capsules)
-eigenmike = rir.Measurement("Eigenmike", [str(x) for x in range(0, 360, 10)], rir.eigenmike_capsules)
-methods = [kemar, eigenmike]
+# kemar = rir.Measurement("Kemar", ["0", "90", "180", "270", "top", "bottom"], rir.kemar_capsules)
+# eigenmike = rir.Measurement("Eigenmike", [str(x) for x in range(0, 360, 10)], rir.eigenmike_capsules)
+RVL = rir.Measurement("RVL", ["0", "90", "180", "270", "top", "bottom"], rir.kemar_capsules)
+# methods = [kemar, eigenmike, RVL]
+methods = [RVL]
+
+remove_direct_sound = True
+
+if remove_direct_sound:
+    print("The direct sound is being removed from the impulses")
+else:
+    print("The direct sound is not being removed from the impulses")
 
 root_dir = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
 
@@ -35,11 +46,11 @@ for room in rooms:
 
     for method in methods:
         # Create file directories
-        sweep_dir = os.path.join(root_dir, "Sweeps", room.name, method.name)
+        sweep_dir = os.path.join(root_dir, "Sweeps_09_08", room.name, method.name)
         if not os.path.isdir(sweep_dir):
             os.makedirs(sweep_dir)
 
-        impulse_dir = os.path.join(root_dir, "Impulses_07_08", room.name, method.name, "raw")
+        impulse_dir = os.path.join(root_dir, "Impulses_15_08", room.name, method.name, "raw")
         if not os.path.isdir(impulse_dir):
             os.makedirs(impulse_dir)
 
@@ -103,12 +114,18 @@ for room in rooms:
 
     for method in methods:
         # create directory
-        raw_dir = os.path.join(root_dir, "Impulses_07_08", room.name, method.name, "raw")
+        raw_dir = os.path.join(root_dir, "Impulses_15_08", room.name, method.name, "raw")
         if not os.path.isdir(raw_dir):
             os.makedirs(raw_dir)
-        trimmed_dir = os.path.join(root_dir, "Impulses_07_08", room.name, method.name, "trimmed")
-        if not os.path.isdir(trimmed_dir):
-            os.makedirs(trimmed_dir)
+        if remove_direct_sound:
+            trimmed_dir = os.path.join(root_dir, "Impulses_15_08", room.name, method.name, "trimmed")
+            if not os.path.isdir(trimmed_dir):
+                os.makedirs(trimmed_dir)
+        else:
+            trimmed_dir = os.path.join(root_dir, "Impulses_15_08", room.name, method.name, "trimmed_direct")
+            if not os.path.isdir(trimmed_dir):
+                os.makedirs(trimmed_dir)
+
 
         for file_name in os.listdir(raw_dir):
             paths = []
@@ -138,9 +155,13 @@ for room in rooms:
 
             for ind, channel in enumerate(data.T):
                 cropped_data[ind] = channel
-                # the data is set to zero up to the first reflection with a bit of leeway and leaving space for the fade
-                zeroed_amount = int(onsets[ind] + round(toa_difference * 44100) - safety - fade_length)
-                cropped_data[ind][:zeroed_amount] = 0
+
+                if remove_direct_sound:
+                    # the data is set to zero up to the first reflection with a bit of leeway and leaving space for the fade
+                    zeroed_amount = int(onsets[ind] + round(toa_difference * 44100) - safety - fade_length)
+                    cropped_data[ind][:zeroed_amount] = 0
+                else:
+                    zeroed_amount = 0
 
                 # fade in
                 for i in range(fade_length):
@@ -159,5 +180,4 @@ for room in rooms:
 
             print(os.path.join(trimmed_dir, file_name))
 
-            # sf.write(os.path.join(trimmed_dir, file_name), output, fs)
-            scipy.io.wavfile.write(os.path.join(trimmed_dir, file_name), fs, output)
+            sf.write(os.path.join(trimmed_dir, file_name), output, fs, subtype='PCM_24', format='WAV')
