@@ -2,16 +2,19 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "PairedComp_0808"
+xml_name_base = "PairedComp_0819"
 
 frame_size = 256
-reverb_order = "0D"
+reverb_order = "3D"
 
 modes = ["TakeFive","Speech"]
 mode_stim = [5,1]
 
 # modes = ["TakeFive"]
 # mode_stim = [5]
+
+# modes = ["Speech"]
+# mode_stim = [1]
 
 # modes = ["Dirac1"]
 # mode_stim = [1]

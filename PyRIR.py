@@ -178,21 +178,21 @@ kemar_capsules = [[0.08, 0, 90],
 
 # with the new stimuli, adjusted for the DRR (first number) and then loudness (second number added to the first)
 # this was adjusted for the new batch 24bit stimuli which for some reason was quieter (third number added)
-DRR_adjustment_trapezoid = [     0, # MP, not using it
-                                 0, # SDM, not using it for now
-                                 5.945 - 2.6976 + 6.018, # 0OA
-                                 1.7694 - 0.31334 + 6.0407, # 1OA
-                                 0.95527 + 0.19137 + 5.9434, # 2OA
-                                 1.7162 - 0.055399 + 5.3892, # 3OA
-                                 0.99568 + 5.9478] # 4OA
+DRR_adjustment_trapezoid = [          0, # MP, not using it
+                                      0, # SDM, not using it for now
+                                 7.3434, # 0OA
+                                 5.2792, # 1OA
+                                 5.2493, # 2OA
+                                 5.5360, # 3OA
+                                 5.2254] # 4OA
 
-DRR_adjustment_library =   [    0, # MP, not using it
-                                0, # SDM, not using it for now
-                                4.1347 - 3.1218 + 5.0346, # 0OA
-                                0.54847 - 0.62083 + 5.0624, # 1OA
-                                -0.90218 + 0.46385 + 5.094, # 2OA
-                                -0.17215 - 0.69959 + 5.3218, # 3OA
-                                -1.2648 + 5.8602] # 4OA
+DRR_adjustment_library =   [         0, # MP, not using it
+                                     0, # SDM, not using it for now
+                                3.6257, # 0OA
+                                2.7006, # 1OA
+                                2.5162, # 2OA
+                                2.6042, # 3OA
+                                2.4681] # 4OA
 
 # Loudspeaker configurations in spherical coordinates [azimuth,elevation], in degrees
 tetrahedron =    [[0, 0],

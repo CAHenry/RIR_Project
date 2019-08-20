@@ -12,20 +12,24 @@ from scipy import signal
 library = rir.Room("Library", 1.5, 1.2, 1.5)    # name, rt60, rd_ratio, mic_height, mic_distance
 trapezoid = rir.Room("Trapezoid", 0.9, 1.2, 1.2)
 lab = rir.Room("Audiolab", 0.3, 1.2, 1.3)
-# rooms = [library, trapezoid]
-rooms = [lab]
+rooms = [library, trapezoid]
+# rooms = [lab]
 
-root_dir = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
+# root_dir = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
 #root_dir = "/Users/isaacengel/Documents/Audio_files"
+root_dir = "C:\\Users\\isaac\\Audio_files_07_08"
 stimuli_dir = os.path.join(root_dir, "Stimuli", "Dry")
 
 apply_filter = True
 methods_to_filter = ["0OA", "1OA", "2OA", "3OA", "4OA", "RVL_4OA"]
-# Filter: low shelf, g=-15db, fc=1khz from https://arachnoid.com/BiQuadDesigner/
-sos = [0.91451797, -1.70941432, 0.80225341, 1, -1.69240694, 0.73377875]
+# Filter: low shelf from https://arachnoid.com/BiQuadDesigner/
+# sos = [0.91451797, -1.70941432, 0.80225341, 1, -1.69240694, 0.73377875] # g=-15db, fc=1khz
+sos = [0.94875379, -1.75013219, 0.81202752, 1, -1.74045010, 0.77046340] # g=-9db, fc=1khz
+sos2 = [1.17663871, -1.05650264, 0.21935801, 1, -1.05650264, 0.39599671] # peak filter fc=5khz, q=0.6, g=4db
 
 modes = ["TakeFive", "Speech", "Dirac1"]
 # modes = ["Dirac1"]
+# modes = ["Speech"]
 
 for mode in modes:
 
@@ -60,20 +64,20 @@ for mode in modes:
     methods = [_0OA,_1OA,_2OA,_3OA,_4OA]
     # methods = [RVL_4OA]
 
-    stimuli_dir = output_dir = os.path.join(root_dir, "Stimuli_07_08")
+    stimuli_dir = output_dir = os.path.join(root_dir, "Stimuli")
     if not os.path.isdir(stimuli_dir):
         print("Creating directory", stimuli_dir, "...")
         os.mkdir(stimuli_dir)
 
     for method in methods:
 
-        output_dir = os.path.join(root_dir, "Stimuli_07_08", method.name)
+        output_dir = os.path.join(root_dir, "Stimuli", method.name)
         if not os.path.isdir(output_dir):
             print("Creating directory", output_dir, "...")
             os.mkdir(output_dir)
 
         for room in rooms:
-            RIR_dir = os.path.join(root_dir, "Impulses_07_08", room.name, "Eigenmike", method.name)
+            RIR_dir = os.path.join(root_dir, "Impulses", room.name, "Eigenmike", method.name)
             if not os.path.isdir(RIR_dir):
                 print("Creating directory", RIR_dir, "...")
                 os.mkdir(RIR_dir)
@@ -114,6 +118,7 @@ for mode in modes:
             for ind, channel in enumerate(output):
                 if apply_filter and method.name in methods_to_filter:
                     channel = signal.sosfilt(sos, channel)
+                    channel = signal.sosfilt(sos2, channel)
 
                 if max(channel) >= 1:
                     print("clipping")
@@ -135,7 +140,7 @@ for mode in modes:
     print("Maximum length is", max_len_file)
     print("Zero-padding...")
 
-    all_stimuli_dir = os.path.join(root_dir, "Stimuli_07_08")
+    all_stimuli_dir = os.path.join(root_dir, "Stimuli")
 
     counter = 0
     for folder, subs, files in os.walk(all_stimuli_dir):

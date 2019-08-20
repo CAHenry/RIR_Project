@@ -2,7 +2,7 @@ import os
 import PyRIR as rir
 import numpy as np
 
-xml_name_base = "MUSHRA_0DB_0808"
+xml_name_base = "MUSHRA_0819"
 
 frame_size = 256
 reverb_order = "0D"
