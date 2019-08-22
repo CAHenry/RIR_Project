@@ -4,12 +4,12 @@
 		"appversion" : 		{
 			"major" : 7,
 			"minor" : 3,
-			"revision" : 4,
-			"architecture" : "x64",
+			"revision" : 6,
+			"architecture" : "x86",
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 1946.0, -475.0, 1852.0, 1049.0 ],
+		"rect" : [ 56.0, 89.0, 1315.0, 767.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 9.0,
@@ -37,6 +37,25 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"bgcolor" : [ 0.878431, 0.756863, 0.470588, 0.0 ],
+					"fontface" : 1,
+					"fontname" : "Arial",
+					"fontsize" : 30.0,
+					"id" : "obj-549",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 66.0, 280.0, 814.0, 74.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 105.0, 234.0, 1070.0, 40.0 ],
+					"style" : "",
+					"text" : "Please rotate your head around often to better explore the environment."
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-541",
 					"maxclass" : "newobj",
@@ -669,7 +688,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1961.5, 1921.002563, 102.0, 19.0 ],
 					"style" : "",
-					"text" : "0. rate A 0 cr"
+					"text" : "0. select R cr"
 				}
 
 			}
@@ -960,8 +979,8 @@
 						"appversion" : 						{
 							"major" : 7,
 							"minor" : 3,
-							"revision" : 4,
-							"architecture" : "x64",
+							"revision" : 6,
+							"architecture" : "x86",
 							"modernui" : 1
 						}
 ,
@@ -2092,8 +2111,8 @@
 						"appversion" : 						{
 							"major" : 7,
 							"minor" : 3,
-							"revision" : 4,
-							"architecture" : "x64",
+							"revision" : 6,
+							"architecture" : "x86",
 							"modernui" : 1
 						}
 ,
@@ -2973,10 +2992,10 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 685.5, 1279.0, 554.0, 89.0 ],
+					"patching_rect" : [ 685.5, 1279.0, 554.0, 87.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 255.5, 737.0, 554.0, 89.0 ],
+					"presentation_rect" : [ 255.5, 737.0, 554.0, 87.0 ],
 					"style" : "",
 					"text" : "Finished!\nPrepare for the next round...",
 					"textjustification" : 1
@@ -3221,11 +3240,11 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 220.5, 1488.5, 374.0, 34.0 ],
+					"patching_rect" : [ 220.5, 1488.5, 374.0, 33.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1371.0, 336.5, 370.0, 34.0 ],
+					"presentation_rect" : [ 1371.0, 336.5, 370.0, 33.0 ],
 					"style" : "",
-					"text" : "Small meeting room"
+					"text" : "Large and spacious room (library)"
 				}
 
 			}
@@ -3248,9 +3267,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 478.0, 1758.0, 719.0, 41.0 ],
+					"patching_rect" : [ 478.0, 1758.0, 719.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 515.0, 358.0, 330.0, 41.0 ],
+					"presentation_rect" : [ 515.0, 358.0, 330.0, 40.0 ],
 					"style" : "",
 					"text" : "1-6 = Play excerpts A-F"
 				}
@@ -3263,9 +3282,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 390.0, 1759.0, 824.0, 41.0 ],
+					"patching_rect" : [ 390.0, 1759.0, 824.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 121.0, 358.0, 280.0, 41.0 ],
+					"presentation_rect" : [ 121.0, 358.0, 280.0, 40.0 ],
 					"style" : "",
 					"text" : "R = Play Reference"
 				}
@@ -3278,9 +3297,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 201.0, 1757.0, 462.0, 41.0 ],
+					"patching_rect" : [ 201.0, 1757.0, 462.0, 40.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 121.0, 309.0, 371.0, 41.0 ],
+					"presentation_rect" : [ 121.0, 309.0, 371.0, 40.0 ],
 					"style" : "",
 					"text" : "Spacebar = PLAY/STOP"
 				}
@@ -3404,7 +3423,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 600.5, 1476.0, 312.0, 228.0 ],
-					"pic" : "take five.png",
+					"pic" : "speech.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 1350.0, 652.0, 476.5, 366.0 ]
 				}
@@ -3476,7 +3495,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 220.5, 1476.0, 358.5, 228.0 ],
-					"pic" : "trapezoid pic.jpg",
+					"pic" : "library pic.jpg",
 					"presentation" : 1,
 					"presentation_rect" : [ 1350.0, 317.0, 476.5, 320.0 ]
 				}
@@ -3748,7 +3767,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3466.0, 1527.760742, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "TakeFive"
+					"text" : "Speech"
 				}
 
 			}
@@ -3774,7 +3793,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3539.0, 1527.760742, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "Trapezoid"
+					"text" : "Library"
 				}
 
 			}
@@ -4138,7 +4157,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3612.594238, 1527.760742, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "1OA"
+					"text" : "4OA"
 				}
 
 			}
@@ -6887,8 +6906,8 @@
 					"one/row" : 1,
 					"outlettype" : [ "list", "list" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 2280.519043, 1506.169922, 114.0, 18.0 ],
-					"presentation_rect" : [ 0.0, 0.0, 114.0, 18.0 ],
+					"patching_rect" : [ 2280.519043, 1506.169922, 112.0, 16.0 ],
+					"presentation_rect" : [ 0.0, 0.0, 112.0, 16.0 ],
 					"rows" : 1,
 					"style" : ""
 				}
@@ -7481,7 +7500,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2168.5, 539.0, 114.0, 19.0 ],
 					"style" : "",
-					"text" : "TakeFive"
+					"text" : "Speech"
 				}
 
 			}
@@ -9721,7 +9740,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1797.0, 852.0, 148.0, 19.0 ],
 					"style" : "",
-					"text" : "1OA"
+					"text" : "0OA"
 				}
 
 			}
@@ -9736,7 +9755,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1763.0, 831.0, 137.0, 19.0 ],
 					"style" : "",
-					"text" : "1OAS"
+					"text" : "4OA"
 				}
 
 			}
@@ -9852,9 +9871,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1083.0, 672.0, 218.0, 50.0 ],
+					"patching_rect" : [ 1083.0, 672.0, 218.0, 49.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1070.0, 986.0, 218.0, 50.0 ],
+					"presentation_rect" : [ 1070.0, 986.0, 218.0, 49.0 ],
 					"style" : "",
 					"text" : "Page 1 of 2",
 					"varname" : "PageDisplay"
@@ -10112,9 +10131,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 646.0, 52.0, 34.0 ],
+					"patching_rect" : [ 104.0, 646.0, 52.0, 33.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 960.0, 52.0, 34.0 ],
+					"presentation_rect" : [ 91.0, 960.0, 52.0, 33.0 ],
 					"style" : "",
 					"text" : "Bad"
 				}
@@ -10128,9 +10147,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 556.0, 60.0, 34.0 ],
+					"patching_rect" : [ 104.0, 556.0, 60.0, 33.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 870.0, 60.0, 34.0 ],
+					"presentation_rect" : [ 91.0, 870.0, 60.0, 33.0 ],
 					"style" : "",
 					"text" : "Poor"
 				}
@@ -10144,9 +10163,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 466.0, 52.0, 34.0 ],
+					"patching_rect" : [ 104.0, 466.0, 52.0, 33.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 780.0, 52.0, 34.0 ],
+					"presentation_rect" : [ 91.0, 780.0, 52.0, 33.0 ],
 					"style" : "",
 					"text" : "Fair"
 				}
@@ -10160,9 +10179,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 375.0, 68.0, 34.0 ],
+					"patching_rect" : [ 104.0, 375.0, 68.0, 33.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 689.0, 68.0, 34.0 ],
+					"presentation_rect" : [ 91.0, 689.0, 68.0, 33.0 ],
 					"style" : "",
 					"text" : "Good"
 				}
@@ -10538,9 +10557,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 283.0, 118.0, 34.0 ],
+					"patching_rect" : [ 104.0, 283.0, 118.0, 33.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 597.0, 118.0, 34.0 ],
+					"presentation_rect" : [ 91.0, 597.0, 118.0, 33.0 ],
 					"style" : "",
 					"text" : "Excellent"
 				}
@@ -10552,16 +10571,16 @@
 					"fontname" : "Arial",
 					"fontsize" : 24.0,
 					"id" : "obj-746",
-					"linecount" : 9,
+					"linecount" : 8,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 48.0, -14.5, 1031.0, 255.0 ],
+					"patching_rect" : [ 48.0, -14.5, 1031.0, 248.0 ],
 					"presentation" : 1,
-					"presentation_linecount" : 9,
-					"presentation_rect" : [ 99.0, 26.0, 1061.0, 255.0 ],
+					"presentation_linecount" : 8,
+					"presentation_rect" : [ 99.0, 26.0, 1061.0, 248.0 ],
 					"style" : "",
-					"text" : "Considering the scene on the right, rate the quality of the examples below. Please note that:\n\n    - The Reference (R) represents an Excellent rendering of the given scene\n\n    - The excerpts A-F are renderings with a quality equal or worse than R\n\n    - You can rotate your head around to better explore the environment\n\n    - When you finish assigning the ratings, click on the arrow to advance to the next page"
+					"text" : "Considering the scene on the right, rate the quality of the examples below. Please note that:\n\n    - The Reference (R) represents an Excellent rendering of the given scene\n\n    - The excerpts A-F are renderings with a quality equal or worse than R\n\n    - When you finish assigning the ratings, click on the arrow to advance to the next page\n\n"
 				}
 
 			}
@@ -12109,7 +12128,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-155", 0 ],
-					"midpoints" : [ 1552.5, 1065.666687, 1539.0, 1065.666687, 1539.0, 961.0, 1459.666626, 961.0, 1459.666626, 923.333313, 1474.5, 923.333313 ],
+					"midpoints" : [ 1552.5, 1065.666626, 1539.0, 1065.666626, 1539.0, 961.0, 1459.666626, 961.0, 1459.666626, 923.333313, 1474.5, 923.333313 ],
 					"order" : 1,
 					"source" : [ "obj-23", 0 ]
 				}
@@ -13744,7 +13763,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-470", 0 ],
-					"midpoints" : [ 1420.542969, 1682.66922, 1386.582764, 1682.66922 ],
+					"midpoints" : [ 1420.542969, 1682.669189, 1386.582764, 1682.669189 ],
 					"source" : [ "obj-445", 0 ]
 				}
 
@@ -13752,7 +13771,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-470", 0 ],
-					"midpoints" : [ 1386.582764, 1670.66922, 1386.582764, 1670.66922 ],
+					"midpoints" : [ 1386.582764, 1670.669189, 1386.582764, 1670.669189 ],
 					"source" : [ "obj-446", 0 ]
 				}
 
@@ -13768,7 +13787,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-477", 0 ],
-					"midpoints" : [ 1534.542236, 1829.66922, 1578.333252, 1829.66922 ],
+					"midpoints" : [ 1534.542236, 1829.669189, 1578.333252, 1829.669189 ],
 					"source" : [ "obj-448", 0 ]
 				}
 
@@ -13791,7 +13810,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-477", 0 ],
-					"midpoints" : [ 1578.333252, 1817.66922, 1578.333252, 1817.66922 ],
+					"midpoints" : [ 1578.333252, 1817.669189, 1578.333252, 1817.669189 ],
 					"source" : [ "obj-453", 0 ]
 				}
 
@@ -13813,7 +13832,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-478", 0 ],
-					"midpoints" : [ 1540.333252, 1751.66922, 1578.333252, 1751.66922 ],
+					"midpoints" : [ 1540.333252, 1751.669189, 1578.333252, 1751.669189 ],
 					"source" : [ "obj-460", 0 ]
 				}
 
@@ -13821,7 +13840,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-460", 0 ],
-					"midpoints" : [ 1456.333252, 1742.66922, 1517.0, 1742.66922, 1517.0, 1715.66922, 1540.333252, 1715.66922 ],
+					"midpoints" : [ 1456.333252, 1742.669189, 1517.0, 1742.669189, 1517.0, 1715.669189, 1540.333252, 1715.669189 ],
 					"source" : [ "obj-461", 0 ]
 				}
 
@@ -13852,7 +13871,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-445", 0 ],
-					"midpoints" : [ 1472.333252, 1628.66922, 1420.542969, 1628.66922 ],
+					"midpoints" : [ 1472.333252, 1628.669189, 1420.542969, 1628.669189 ],
 					"order" : 2,
 					"source" : [ "obj-466", 0 ]
 				}
@@ -13861,7 +13880,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-448", 0 ],
-					"midpoints" : [ 1472.333252, 1667.66922, 1517.0, 1667.66922, 1517.0, 1751.66922, 1534.542236, 1751.66922 ],
+					"midpoints" : [ 1472.333252, 1667.669189, 1517.0, 1667.669189, 1517.0, 1751.669189, 1534.542236, 1751.669189 ],
 					"order" : 0,
 					"source" : [ "obj-466", 0 ]
 				}
@@ -13870,7 +13889,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-469", 0 ],
-					"midpoints" : [ 1472.333252, 1667.66922, 1456.333252, 1667.66922 ],
+					"midpoints" : [ 1472.333252, 1667.669189, 1456.333252, 1667.669189 ],
 					"order" : 1,
 					"source" : [ "obj-466", 0 ]
 				}
@@ -13902,7 +13921,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-461", 0 ],
-					"midpoints" : [ 1456.333252, 1706.66922, 1456.333252, 1706.66922 ],
+					"midpoints" : [ 1456.333252, 1706.669189, 1456.333252, 1706.669189 ],
 					"source" : [ "obj-469", 0 ]
 				}
 
@@ -13910,7 +13929,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-476", 0 ],
-					"midpoints" : [ 1386.582764, 1712.66922, 1386.582764, 1712.66922 ],
+					"midpoints" : [ 1386.582764, 1712.669189, 1386.582764, 1712.669189 ],
 					"source" : [ "obj-470", 0 ]
 				}
 
@@ -13918,7 +13937,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-469", 1 ],
-					"midpoints" : [ 1386.582764, 1775.66922, 1364.0, 1775.66922, 1364.0, 1679.66922, 1474.333252, 1679.66922 ],
+					"midpoints" : [ 1386.582764, 1775.669189, 1364.0, 1775.669189, 1364.0, 1679.669189, 1474.333252, 1679.669189 ],
 					"source" : [ "obj-471", 0 ]
 				}
 
@@ -13954,7 +13973,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-471", 0 ],
-					"midpoints" : [ 1386.582764, 1745.66922, 1386.582764, 1745.66922 ],
+					"midpoints" : [ 1386.582764, 1745.669189, 1386.582764, 1745.669189 ],
 					"source" : [ "obj-476", 0 ]
 				}
 
@@ -13962,7 +13981,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-453", 0 ],
-					"midpoints" : [ 1578.333252, 1790.66922, 1578.333252, 1790.66922 ],
+					"midpoints" : [ 1578.333252, 1790.669189, 1578.333252, 1790.669189 ],
 					"source" : [ "obj-478", 0 ]
 				}
 
@@ -13970,7 +13989,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-478", 3 ],
-					"midpoints" : [ 1684.666748, 1751.66922, 1629.333252, 1751.66922 ],
+					"midpoints" : [ 1684.666748, 1751.669189, 1629.333252, 1751.669189 ],
 					"source" : [ "obj-479", 0 ]
 				}
 
@@ -13978,7 +13997,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-478", 2 ],
-					"midpoints" : [ 1634.333252, 1751.66922, 1612.333252, 1751.66922 ],
+					"midpoints" : [ 1634.333252, 1751.669189, 1612.333252, 1751.669189 ],
 					"source" : [ "obj-480", 0 ]
 				}
 
@@ -13986,7 +14005,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-478", 1 ],
-					"midpoints" : [ 1586.333252, 1751.66922, 1595.333252, 1751.66922 ],
+					"midpoints" : [ 1586.333252, 1751.669189, 1595.333252, 1751.669189 ],
 					"source" : [ "obj-481", 0 ]
 				}
 
@@ -14008,7 +14027,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-487", 0 ],
-					"midpoints" : [ 1371.833252, 1841.66922, 1371.833252, 1841.66922 ],
+					"midpoints" : [ 1371.833252, 1841.669189, 1371.833252, 1841.669189 ],
 					"source" : [ "obj-485", 0 ]
 				}
 
@@ -14016,7 +14035,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-446", 0 ],
-					"midpoints" : [ 1373.5, 1640.66922, 1386.582764, 1640.66922 ],
+					"midpoints" : [ 1373.5, 1640.669189, 1386.582764, 1640.669189 ],
 					"order" : 0,
 					"source" : [ "obj-486", 0 ]
 				}
@@ -14025,7 +14044,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-485", 0 ],
-					"midpoints" : [ 1373.5, 1811.66922, 1371.833252, 1811.66922 ],
+					"midpoints" : [ 1373.5, 1811.669189, 1371.833252, 1811.669189 ],
 					"order" : 1,
 					"source" : [ "obj-486", 0 ]
 				}
@@ -14034,7 +14053,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-477", 0 ],
-					"midpoints" : [ 1371.833252, 1877.66922, 1553.0, 1877.66922, 1553.0, 1829.66922, 1578.333252, 1829.66922 ],
+					"midpoints" : [ 1371.833252, 1877.669189, 1553.0, 1877.669189, 1553.0, 1829.669189, 1578.333252, 1829.669189 ],
 					"source" : [ "obj-487", 0 ]
 				}
 
@@ -14164,7 +14183,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-511", 0 ],
-					"midpoints" : [ 1796.542969, 1773.502594, 1762.582764, 1773.502594 ],
+					"midpoints" : [ 1796.542969, 1773.502563, 1762.582764, 1773.502563 ],
 					"source" : [ "obj-503", 0 ]
 				}
 
@@ -14172,7 +14191,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-511", 0 ],
-					"midpoints" : [ 1762.582764, 1761.502594, 1762.582764, 1761.502594 ],
+					"midpoints" : [ 1762.582764, 1761.502563, 1762.582764, 1761.502563 ],
 					"source" : [ "obj-504", 0 ]
 				}
 
@@ -14180,7 +14199,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-514", 0 ],
-					"midpoints" : [ 1910.542236, 1920.502594, 1952.0, 1920.502594 ],
+					"midpoints" : [ 1910.542236, 1920.502563, 1952.0, 1920.502563 ],
 					"source" : [ "obj-505", 0 ]
 				}
 
@@ -14195,7 +14214,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-506", 0 ],
-					"midpoints" : [ 1832.333252, 1833.502594, 1893.0, 1833.502594, 1893.0, 1806.502594, 1875.333252, 1806.502594 ],
+					"midpoints" : [ 1832.333252, 1833.502563, 1893.0, 1833.502563, 1893.0, 1806.502563, 1875.333252, 1806.502563 ],
 					"source" : [ "obj-507", 0 ]
 				}
 
@@ -14203,7 +14222,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-503", 0 ],
-					"midpoints" : [ 1848.333252, 1719.502594, 1796.542969, 1719.502594 ],
+					"midpoints" : [ 1848.333252, 1719.502563, 1796.542969, 1719.502563 ],
 					"order" : 2,
 					"source" : [ "obj-509", 0 ]
 				}
@@ -14212,7 +14231,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-505", 0 ],
-					"midpoints" : [ 1848.333252, 1758.502594, 1893.0, 1758.502594, 1893.0, 1842.502594, 1910.542236, 1842.502594 ],
+					"midpoints" : [ 1848.333252, 1758.502563, 1893.0, 1758.502563, 1893.0, 1842.502563, 1910.542236, 1842.502563 ],
 					"order" : 0,
 					"source" : [ "obj-509", 0 ]
 				}
@@ -14221,7 +14240,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-510", 0 ],
-					"midpoints" : [ 1848.333252, 1758.502594, 1832.333252, 1758.502594 ],
+					"midpoints" : [ 1848.333252, 1758.502563, 1832.333252, 1758.502563 ],
 					"order" : 1,
 					"source" : [ "obj-509", 0 ]
 				}
@@ -14230,7 +14249,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-507", 0 ],
-					"midpoints" : [ 1832.333252, 1797.502594, 1832.333252, 1797.502594 ],
+					"midpoints" : [ 1832.333252, 1797.502563, 1832.333252, 1797.502563 ],
 					"source" : [ "obj-510", 0 ]
 				}
 
@@ -14238,7 +14257,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-513", 0 ],
-					"midpoints" : [ 1762.582764, 1803.502594, 1762.582764, 1803.502594 ],
+					"midpoints" : [ 1762.582764, 1803.502563, 1762.582764, 1803.502563 ],
 					"source" : [ "obj-511", 0 ]
 				}
 
@@ -14246,7 +14265,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-510", 1 ],
-					"midpoints" : [ 1762.582764, 1866.502594, 1740.0, 1866.502594, 1740.0, 1770.502594, 1850.333252, 1770.502594 ],
+					"midpoints" : [ 1762.582764, 1866.502563, 1740.0, 1866.502563, 1740.0, 1770.502563, 1850.333252, 1770.502563 ],
 					"source" : [ "obj-512", 0 ]
 				}
 
@@ -14254,7 +14273,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-512", 0 ],
-					"midpoints" : [ 1762.582764, 1836.502594, 1762.582764, 1836.502594 ],
+					"midpoints" : [ 1762.582764, 1836.502563, 1762.582764, 1836.502563 ],
 					"source" : [ "obj-513", 0 ]
 				}
 
@@ -14262,7 +14281,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-518", 0 ],
-					"midpoints" : [ 1747.833252, 1932.502594, 1747.833252, 1932.502594 ],
+					"midpoints" : [ 1747.833252, 1932.502563, 1747.833252, 1932.502563 ],
 					"source" : [ "obj-516", 0 ]
 				}
 
@@ -14270,7 +14289,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-504", 0 ],
-					"midpoints" : [ 1749.5, 1731.502594, 1762.582764, 1731.502594 ],
+					"midpoints" : [ 1749.5, 1731.502563, 1762.582764, 1731.502563 ],
 					"order" : 0,
 					"source" : [ "obj-517", 0 ]
 				}
@@ -14279,7 +14298,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-516", 0 ],
-					"midpoints" : [ 1749.5, 1902.502594, 1747.833252, 1902.502594 ],
+					"midpoints" : [ 1749.5, 1902.502563, 1747.833252, 1902.502563 ],
 					"order" : 1,
 					"source" : [ "obj-517", 0 ]
 				}
@@ -14288,7 +14307,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-514", 0 ],
-					"midpoints" : [ 1747.833252, 1968.502594, 1929.0, 1968.502594, 1929.0, 1920.502594, 1952.0, 1920.502594 ],
+					"midpoints" : [ 1747.833252, 1968.502563, 1929.0, 1968.502563, 1929.0, 1920.502563, 1952.0, 1920.502563 ],
 					"source" : [ "obj-518", 0 ]
 				}
 
@@ -15346,112 +15365,112 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "BlueToggleMaskA.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskB.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskC.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskD.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskE.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskF.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueButtonActiveMaskNext.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskR.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskPlayPause.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueButtonMaskStop.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
-				"patcherrelativepath" : "./Buttons",
+				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
+				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "locking.json",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "headtracker.maxpat",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "getAngle",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "makemessages_v3.js",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "trapezoid pic.jpg",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
+				"name" : "library pic.jpg",
+				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "take five.png",
-				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
+				"name" : "speech.png",
+				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "PNG ",
 				"implicit" : 1
