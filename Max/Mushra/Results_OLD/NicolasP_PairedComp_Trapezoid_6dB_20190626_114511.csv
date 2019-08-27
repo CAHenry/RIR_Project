@@ -1,8 +1,0 @@
-Speech Trapezoid 1OA 1OAS, 1.000
-Speech Trapezoid 1OA 1OA, 0.000
-Speech Trapezoid ABIR 1OAS, 1.000
-TakeFive Trapezoid 1OA 1OAS, 0.500
-TakeFive Trapezoid 1OAS ABIR, -0.460
-TakeFive Trapezoid ABIR 1OA, 0.500
-TakeFive Trapezoid 1OA 1OA, 0.000
-Speech Trapezoid 1OA ABIR, -1.020
