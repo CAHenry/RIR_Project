@@ -4,12 +4,12 @@
 		"appversion" : 		{
 			"major" : 7,
 			"minor" : 3,
-			"revision" : 6,
-			"architecture" : "x86",
+			"revision" : 4,
+			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 0.0, 0.0, 1440.0, 900.0 ],
+		"rect" : [ 1954.0, -484.0, 1852.0, 1049.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 9.0,
@@ -47,10 +47,10 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 66.0, 280.0, 814.0, 74.0 ],
+					"patching_rect" : [ 66.0, 280.0, 814.0, 75.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 120.0, 176.5, 896.0, 74.0 ],
+					"presentation_rect" : [ 120.0, 164.0, 896.0, 75.0 ],
 					"style" : "",
 					"text" : "Please rotate your head around often to better explore the environment."
 				}
@@ -646,8 +646,8 @@
 						"appversion" : 						{
 							"major" : 7,
 							"minor" : 3,
-							"revision" : 6,
-							"architecture" : "x86",
+							"revision" : 4,
+							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
@@ -1740,8 +1740,8 @@
 						"appversion" : 						{
 							"major" : 7,
 							"minor" : 3,
-							"revision" : 6,
-							"architecture" : "x86",
+							"revision" : 4,
+							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
@@ -2607,10 +2607,10 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 685.5, 1279.0, 554.0, 87.0 ],
+					"patching_rect" : [ 685.5, 1279.0, 554.0, 89.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 175.0, 700.0, 554.0, 87.0 ],
+					"presentation_rect" : [ 175.0, 700.0, 554.0, 89.0 ],
 					"style" : "",
 					"text" : "Finished!\nPrepare for the next round...",
 					"textjustification" : 1
@@ -2893,9 +2893,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 220.5, 1488.5, 374.0, 33.0 ],
+					"patching_rect" : [ 220.5, 1488.5, 374.0, 34.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1059.0, 279.0, 370.0, 33.0 ],
+					"presentation_rect" : [ 1059.0, 279.0, 370.0, 34.0 ],
 					"style" : "",
 					"text" : "Large and spacious room (library)"
 				}
@@ -3270,7 +3270,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3628.0, 1516.0, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "1OAS"
+					"text" : "1OA"
 				}
 
 			}
@@ -3281,9 +3281,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 372.0, 1775.0, 719.0, 40.0 ],
+					"patching_rect" : [ 372.0, 1775.0, 719.0, 41.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 537.0, 294.0, 330.0, 40.0 ],
+					"presentation_rect" : [ 537.0, 294.0, 330.0, 41.0 ],
 					"style" : "",
 					"text" : "1-2 = Switch A/B"
 				}
@@ -3296,9 +3296,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 95.0, 1774.0, 462.0, 40.0 ],
+					"patching_rect" : [ 95.0, 1774.0, 462.0, 41.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 133.0, 294.0, 371.0, 40.0 ],
+					"presentation_rect" : [ 133.0, 294.0, 371.0, 41.0 ],
 					"style" : "",
 					"text" : "Spacebar = PLAY/STOP"
 				}
@@ -4010,7 +4010,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3390.0, 1658.0, 110.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech Library 1OAS"
+					"text" : "Speech Library 1OA"
 				}
 
 			}
@@ -7504,7 +7504,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1797.0, 852.0, 148.0, 19.0 ],
 					"style" : "",
-					"text" : "1OAS"
+					"text" : "ABIR"
 				}
 
 			}
@@ -7519,7 +7519,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1763.0, 831.0, 137.0, 19.0 ],
 					"style" : "",
-					"text" : "1OAS"
+					"text" : "1OA"
 				}
 
 			}
@@ -7587,9 +7587,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1083.0, 672.0, 218.0, 49.0 ],
+					"patching_rect" : [ 1083.0, 672.0, 218.0, 50.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 783.0, 919.0, 218.0, 49.0 ],
+					"presentation_rect" : [ 783.0, 919.0, 218.0, 50.0 ],
 					"style" : "",
 					"text" : "Page 1 of 8",
 					"varname" : "PageDisplay"
@@ -7882,9 +7882,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 457.0, 597.5, 66.0, 40.0 ],
+					"patching_rect" : [ 457.0, 597.5, 66.0, 41.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 417.0, 870.0, 66.0, 40.0 ],
+					"presentation_rect" : [ 417.0, 870.0, 66.0, 41.0 ],
 					"style" : "",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"triangle" : 0,
@@ -7952,16 +7952,16 @@
 					"fontname" : "Arial",
 					"fontsize" : 30.0,
 					"id" : "obj-746",
-					"linecount" : 4,
+					"linecount" : 5,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 198.0, 69.5, 689.0, 174.0 ],
+					"patching_rect" : [ 198.0, 69.5, 689.0, 213.0 ],
 					"presentation" : 1,
-					"presentation_linecount" : 4,
-					"presentation_rect" : [ 115.0, 80.5, 850.5, 174.0 ],
+					"presentation_linecount" : 5,
+					"presentation_rect" : [ 115.0, 68.0, 901.0, 179.0 ],
 					"style" : "",
-					"text" : "Considering the scene on the right, which example sounds most apropriate?\n\n\n"
+					"text" : "Considering the room you are in, which example sounds most apropriate?\n\n\n\n"
 				}
 
 			}
@@ -11720,77 +11720,77 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "BlueToggleMaskA.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskB.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueButtonActiveMaskNext.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskPlayPause.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueButtonMaskStop.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "headtracker.maxpat",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "getAngle",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "library pic.jpg",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "speech.png",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "moveStaticSources.js",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "makemessages_pairedcomp_singleroom.js",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1

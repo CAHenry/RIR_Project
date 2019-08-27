@@ -4,12 +4,12 @@
 		"appversion" : 		{
 			"major" : 7,
 			"minor" : 3,
-			"revision" : 6,
-			"architecture" : "x86",
+			"revision" : 4,
+			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 0.0, 0.0, 1440.0, 900.0 ],
+		"rect" : [ 1954.0, -484.0, 1852.0, 1049.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 9.0,
@@ -47,30 +47,11 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 66.0, 280.0, 814.0, 74.0 ],
+					"patching_rect" : [ 66.0, 280.0, 814.0, 75.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 105.0, 234.0, 1070.0, 40.0 ],
+					"presentation_rect" : [ 105.0, 234.0, 1070.0, 41.0 ],
 					"style" : "",
 					"text" : "Please rotate your head around often to better explore the environment."
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgcolor" : [ 0.880169, 0.755396, 0.471904, 0.23 ],
-					"fontname" : "Arial",
-					"fontsize" : 24.0,
-					"id" : "obj-550",
-					"linecount" : 8,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 48.0, -14.5, 1031.0, 221.0 ],
-					"presentation" : 1,
-					"presentation_linecount" : 8,
-					"presentation_rect" : [ 99.0, 26.0, 1061.0, 221.0 ],
-					"style" : "",
-					"text" : "Considering the scene on the right, rate the quality of the examples below. Please note that:\n\n    - The Reference (R) represents an Excellent rendering of the given scene\n\n    - The excerpts A-F are renderings with a quality equal or worse than R\n\n    - When you finish assigning the ratings, click on the arrow to advance to the next page\n\n"
 				}
 
 			}
@@ -998,8 +979,8 @@
 						"appversion" : 						{
 							"major" : 7,
 							"minor" : 3,
-							"revision" : 6,
-							"architecture" : "x86",
+							"revision" : 4,
+							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
@@ -2130,8 +2111,8 @@
 						"appversion" : 						{
 							"major" : 7,
 							"minor" : 3,
-							"revision" : 6,
-							"architecture" : "x86",
+							"revision" : 4,
+							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
@@ -3011,10 +2992,10 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 685.5, 1279.0, 554.0, 87.0 ],
+					"patching_rect" : [ 685.5, 1279.0, 554.0, 89.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 255.5, 737.0, 554.0, 87.0 ],
+					"presentation_rect" : [ 255.5, 737.0, 554.0, 89.0 ],
 					"style" : "",
 					"text" : "Finished!\nPrepare for the next round...",
 					"textjustification" : 1
@@ -3259,9 +3240,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 220.5, 1488.5, 374.0, 33.0 ],
+					"patching_rect" : [ 220.5, 1488.5, 374.0, 34.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1371.0, 336.5, 370.0, 33.0 ],
+					"presentation_rect" : [ 1371.0, 336.5, 370.0, 34.0 ],
 					"style" : "",
 					"text" : "Small meeting room"
 				}
@@ -3286,9 +3267,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 478.0, 1758.0, 719.0, 40.0 ],
+					"patching_rect" : [ 478.0, 1758.0, 719.0, 41.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 515.0, 358.0, 330.0, 40.0 ],
+					"presentation_rect" : [ 515.0, 358.0, 330.0, 41.0 ],
 					"style" : "",
 					"text" : "1-6 = Play excerpts A-F"
 				}
@@ -3301,9 +3282,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 390.0, 1759.0, 824.0, 40.0 ],
+					"patching_rect" : [ 390.0, 1759.0, 824.0, 41.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 121.0, 358.0, 280.0, 40.0 ],
+					"presentation_rect" : [ 121.0, 358.0, 280.0, 41.0 ],
 					"style" : "",
 					"text" : "R = Play Reference"
 				}
@@ -3316,9 +3297,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 201.0, 1757.0, 462.0, 40.0 ],
+					"patching_rect" : [ 201.0, 1757.0, 462.0, 41.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 121.0, 309.0, 371.0, 40.0 ],
+					"presentation_rect" : [ 121.0, 309.0, 371.0, 41.0 ],
 					"style" : "",
 					"text" : "Spacebar = PLAY/STOP"
 				}
@@ -3442,7 +3423,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 600.5, 1476.0, 312.0, 228.0 ],
-					"pic" : "speech.png",
+					"pic" : "take five.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 1350.0, 652.0, 476.5, 366.0 ]
 				}
@@ -3786,7 +3767,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3466.0, 1527.760742, 50.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech"
+					"text" : "TakeFive"
 				}
 
 			}
@@ -7519,7 +7500,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2168.5, 539.0, 114.0, 19.0 ],
 					"style" : "",
-					"text" : "Speech"
+					"text" : "TakeFive"
 				}
 
 			}
@@ -9890,9 +9871,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1083.0, 672.0, 218.0, 49.0 ],
+					"patching_rect" : [ 1083.0, 672.0, 218.0, 50.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1070.0, 986.0, 218.0, 49.0 ],
+					"presentation_rect" : [ 1070.0, 986.0, 218.0, 50.0 ],
 					"style" : "",
 					"text" : "Page 1 of 2",
 					"varname" : "PageDisplay"
@@ -10150,9 +10131,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 646.0, 52.0, 33.0 ],
+					"patching_rect" : [ 104.0, 646.0, 52.0, 34.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 960.0, 52.0, 33.0 ],
+					"presentation_rect" : [ 91.0, 960.0, 52.0, 34.0 ],
 					"style" : "",
 					"text" : "Bad"
 				}
@@ -10166,9 +10147,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 556.0, 60.0, 33.0 ],
+					"patching_rect" : [ 104.0, 556.0, 60.0, 34.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 870.0, 60.0, 33.0 ],
+					"presentation_rect" : [ 91.0, 870.0, 60.0, 34.0 ],
 					"style" : "",
 					"text" : "Poor"
 				}
@@ -10182,9 +10163,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 466.0, 52.0, 33.0 ],
+					"patching_rect" : [ 104.0, 466.0, 52.0, 34.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 780.0, 52.0, 33.0 ],
+					"presentation_rect" : [ 91.0, 780.0, 52.0, 34.0 ],
 					"style" : "",
 					"text" : "Fair"
 				}
@@ -10198,9 +10179,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 375.0, 68.0, 33.0 ],
+					"patching_rect" : [ 104.0, 375.0, 68.0, 34.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 689.0, 68.0, 33.0 ],
+					"presentation_rect" : [ 91.0, 689.0, 68.0, 34.0 ],
 					"style" : "",
 					"text" : "Good"
 				}
@@ -10576,9 +10557,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 104.0, 283.0, 118.0, 33.0 ],
+					"patching_rect" : [ 104.0, 283.0, 118.0, 34.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 91.0, 597.0, 118.0, 33.0 ],
+					"presentation_rect" : [ 91.0, 597.0, 118.0, 34.0 ],
 					"style" : "",
 					"text" : "Excellent"
 				}
@@ -10594,12 +10575,12 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 48.0, -14.5, 1031.0, 248.0 ],
+					"patching_rect" : [ 48.0, -14.5, 1031.0, 255.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 8,
-					"presentation_rect" : [ 99.0, 26.0, 1061.0, 248.0 ],
+					"presentation_rect" : [ 99.0, 26.0, 1061.0, 255.0 ],
 					"style" : "",
-					"text" : "Considering the scene on the right, rate the quality of the examples below. Please note that:\n\n    - The Reference (R) represents an Excellent rendering of the given scene\n\n    - The excerpts A-F are renderings with a quality equal or worse than R\n\n    - When you finish assigning the ratings, click on the arrow to advance to the next page\n\n"
+					"text" : "Considering the room that you are in, rate the quality of the examples below. Please note that:\n\n    - The Reference (R) represents an Excellent rendering of the given scene\n\n    - The excerpts A-F are renderings with a quality equal or worse than R\n\n    - When you finish assigning the ratings, click on the arrow to advance to the next page\n\n"
 				}
 
 			}
@@ -15384,112 +15365,112 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "BlueToggleMaskA.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskB.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskC.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskD.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskE.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskF.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueButtonActiveMaskNext.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskR.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueToggleMaskPlayPause.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "BlueButtonMaskStop.jpg",
-				"bootpath" : "~/.Trash/Max 15.40.12/Mushra/Buttons",
-				"patcherrelativepath" : "../../../../../.Trash/Max 15.40.12/Mushra/Buttons",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra/Buttons",
+				"patcherrelativepath" : "./Buttons",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "locking.json",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "headtracker.maxpat",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "getAngle",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "makemessages_v3.js",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "trapezoid pic.jpg",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JPEG",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "speech.png",
-				"bootpath" : "~/Documents/Reverb Study/RIR_Project/Max/Mushra",
+				"name" : "take five.png",
+				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "PNG ",
 				"implicit" : 1
