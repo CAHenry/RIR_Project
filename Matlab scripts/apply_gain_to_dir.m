@@ -19,5 +19,5 @@ for ind=1:length(filelist)
     infile = filelist{ind};
     [x,fs] = audioread([indir,'/',infile]);
     y = x.*gain;
-    audiowrite([outdir,'/',infile],y,fs);
+    audiowrite([outdir,'/',infile],y,fs,'BitsPerSample',24);
 end

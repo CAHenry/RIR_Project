@@ -17,17 +17,19 @@
 wav2brirConvert(); % NOTE: comment out if the mat files are already generated
 
 % Loop through all the output files
-filenames = {'Library','Trapezoid'};
+% filenames = {'Library','Trapezoid'};
+filenames = getDirList('out');
 
 % NORMALIZATION: BRIRs were normalized according to pilot tests. Values are
-% as follows (in dB)
-normvalues_db = [0,0];%[-15.513, -14.19];
+% as follows (in dB). Library first, trapezoid second.
+normvalues_db = [-8.5496 -4.8411]; % these are for the 24bit kemar recordings without ear canal
+% normvalues_db = [-8.114+1.6663-2+11.606-6,-6.4392+1.6607-4+13.575-6-2.1922]; % these are for the 24bit eigen recordings
 
 for i=1:length(filenames)
     
     % Load file
     name = filenames{i};
-    load(['out/',name,'.mat'],'l_brir_S','r_brir_S')
+    load(['out/',name],'l_brir_S','r_brir_S')
     
     % Create the IR
     L = l_brir_S.content_m;
@@ -35,7 +37,20 @@ for i=1:length(filenames)
     IR = [reshape(L,size(L,1),1,size(L,2)),reshape(R,size(R,1),1,size(R,2))];
     
     % Normalisation
-    normvalue = 10.^(normvalues_db(i)/20);
+    if contains(name,'Library')
+        roomname = 'Library';
+        title = 'Large room (library) reverb for 6 virtual loudspeakers';
+        comment = 'BRIR for the Dyson Building Library at Imperial College';
+        normvalue_db = normvalues_db(1);
+    elseif contains(name,'Trapezoid')
+        roomname = 'Trapezoid';
+        title = 'Small room (trapezoid) reverb for 6 virtual loudspeakers';
+        comment = 'BRIR for the meeting room "Trapezoid 3" at the Dyson Building, Imperial College';
+        normvalue_db = normvalues_db(2);
+    else
+        error('Name is not Library or Trapezoid!');
+    end
+    normvalue = 10.^(normvalue_db/20);
     IR = IR.*normvalue;
 
     % Fill in the data struct
@@ -51,8 +66,14 @@ for i=1:length(filenames)
     % Change relevant bits
     S.GLOBAL_DateCreated = '3 May 2019';
     S.GLOBAL_DateModified = '3 May 2019';
-    S.GLOBAL_Title = 'large room reverb for 6 virtual loudspeakers';
-    S.GLOBAL_Title = 'KEMAR with large pinnae';
+    S.GLOBAL_Title = title;
+    S.GLOBAL_AuthorContact = 'Isaac Engel (isaac.engel@imperial.ac.uk)';
+    S.GLOBAL_Comment = comment;
+    S.GLOBAL_History = 'version 1.0';
+    S.GLOBAL_Organization = 'Imperial College London';
+    S.GLOBAL_ListenerShortName = 'KEMAR dummy head with KB0065 and KB0066 pinnae';
+    S.GLOBAL_SourceDescription='Genelec 8030';
+    
     Az = l_brir_S.azim_v';
     El = l_brir_S.elev_v';
     R = repmat(1.2,length(Az),1);
@@ -85,7 +106,9 @@ for i=1:length(filenames)
 %     S.Data = data;
 
     % Save to SOFA file
-    SOFAsave(['SOFAfiles/BRIR_',name,'_',num2str(data.SamplingRate),'Hz.sofa'],S);
+    SOFAsave(['SOFAfiles/BRIR_',roomname,'_',num2str(data.SamplingRate),'Hz.sofa'],S);
 end
+
+clear title
 
 disp('Finished!')

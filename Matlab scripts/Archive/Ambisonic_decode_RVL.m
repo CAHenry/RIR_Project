@@ -68,7 +68,7 @@ for indroom = 1:length(rooms)
             % decode signals
             lssig = decodeHOA_N3D(hoasig, D_sad);
 
-            audiowrite([outdir,room,'/RVL_',num2str(order),'OA/',outfile], lssig, 44100)
+            audiowrite([outdir,room,'/RVL_',num2str(order),'OA/',outfile], lssig, 44100,'BitsPerSample',24)
 
         end
     end

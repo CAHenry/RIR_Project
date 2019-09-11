@@ -16,7 +16,7 @@ for indroom = 1:length(rooms)
         
         azimuth = azimuths(indaz);
         
-        infile = [room,'_Eigenmike_',num2str(azimuth),'_Ambi4OA.wav'];
+        infile = [room,'_Eigenmike_',num2str(azimuth),'_4OA.wav']; %,'_Ambi4OA.wav'];
         hoasig4thorder = audioread([indir,infile]);
 
         for order=0:1:4
@@ -56,7 +56,7 @@ for indroom = 1:length(rooms)
             % decode signals
             lssig = decodeHOA_N3D(hoasig, D_sad);
 
-            audiowrite([outdir,room,'/',num2str(order),'OA/',outfile], lssig, 44100)
+            audiowrite([outdir,room,'/',num2str(order),'OA/',outfile], lssig, 44100,'BitsPerSample',24)
 
         end
     end

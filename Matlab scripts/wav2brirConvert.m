@@ -32,6 +32,11 @@ for roomID = 1:length(dirList_room);
     l_brir_S.rcv_pos = [0 0 0];
     l_brir_S.rcv_look = [1 0 0];
     l_brir_S.sampling_hz = 44100;
+    if contains(dirName_brir,'48k')
+        l_brir_S.sampling_hz = 48000;
+    elseif contains(dirName_brir,'96k')
+        l_brir_S.sampling_hz = 96000;
+    end
     l_brir_S.content_m = [];
     r_brir_S = l_brir_S;
     

@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 1954.0, -484.0, 1852.0, 1049.0 ],
+		"rect" : [ 34.0, 77.0, 1468.0, 713.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 9.0,
@@ -66,7 +66,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 198.0, 69.5, 689.0, 213.0 ],
+					"patching_rect" : [ 198.0, 69.5, 689.0, 179.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 5,
 					"presentation_rect" : [ 115.0, 70.5, 901.0, 179.0 ],
@@ -2916,7 +2916,7 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 1059.0, 279.0, 370.0, 34.0 ],
 					"style" : "",
-					"text" : "Small meeting room"
+					"text" : "Large and spacious room (library)"
 				}
 
 			}
@@ -2924,7 +2924,7 @@
 				"box" : 				{
 					"id" : "obj-164",
 					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 3182.239014, 1700.0, 184.0, 19.0 ],
@@ -3544,7 +3544,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 220.5, 1476.0, 358.5, 228.0 ],
-					"pic" : "trapezoid pic.jpg",
+					"pic" : "library pic.jpg",
 					"presentation" : 1,
 					"presentation_rect" : [ 1049.0, 267.0, 476.5, 320.0 ]
 				}
@@ -4029,7 +4029,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3390.0, 1658.0, 110.0, 29.0 ],
 					"style" : "",
-					"text" : "TakeFive Trapezoid 1OA"
+					"text" : "TakeFive Library 1OA"
 				}
 
 			}
@@ -11768,7 +11768,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "trapezoid pic.jpg",
+				"name" : "library pic.jpg",
 				"bootpath" : "~/Box Sync/Workspace/Reverb study/RIR_Project/Max/Mushra",
 				"patcherrelativepath" : ".",
 				"type" : "JPEG",

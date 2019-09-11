@@ -1,5 +1,5 @@
 
-inlets = 2;
+inlets = 1;
 outlets = 2;
 
 setinletassist(0, "msg program room condition action parameter");
@@ -11,27 +11,7 @@ var nDirectSources =  [5, 1];
 //var rooms =  ['Library', 'Trapezoid'];// ['Trapezoid']
 var conditions = ['direct', '1OA','1OAS'];
 var nSourcesPerCondition = [1, 6, 6];
-var plus6db = 1;
 var currRoom = 'Library';
-
-function msg_int(n) {
-	if(inlet == 1) {
-		plus6dB = n;
-		if(currRoom=="Library") {
-			gain = 0;
-			if(plus6dB) {
-				gain = gain + 6;
-			}
-		} else {
-			gain = 0;
-			if(plus6dB) {
-				gain = gain + 6;
-			}
-		}
-		oscmsg = "/3DTI-OSC/environment/gain " + gain;
-		outlet(0,oscmsg);
-	}
-}
 
 function msg(program,room,condition,action,parameter) { // room has no effect here
 	currRoom = room; // most recent room
@@ -39,14 +19,8 @@ function msg(program,room,condition,action,parameter) { // room has no effect he
 		outlet(0,"/3DTI-OSC/environment/order 3D");
 		if(room=="Library") {
 			gain = 0;
-			if(plus6dB) {
-				gain = gain + 6;
-			}
 		} else {
 			gain = 0;
-			if(plus6dB) {
-				gain = gain + 6;
-			}
 		}
 		oscmsg = "/3DTI-OSC/environment/gain " + gain;
 		outlet(0,oscmsg);

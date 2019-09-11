@@ -17,7 +17,7 @@ rooms = [library, trapezoid]
 
 # root_dir = "C:\\Users\\craig\\Box Sync\\Papers\\Reverb study\\Audio_files"
 #root_dir = "/Users/isaacengel/Documents/Audio_files"
-root_dir = "C:\\Users\\isaac\\Audio_files_07_08"
+root_dir = "C:\\Users\\isaac\\Audio_files_09_09"
 stimuli_dir = os.path.join(root_dir, "Stimuli", "Dry")
 
 apply_filter = True
