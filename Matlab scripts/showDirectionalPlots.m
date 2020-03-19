@@ -10,8 +10,18 @@
 
 % TODO: plotHOA, show precedence effect time window
 
-indir = 'ambisonic_withdirect_minus12db/';
-rooms = {'Trapezoid'};
+clear, close all
+
+figdir = 'figures';
+if ~isfolder(figdir)
+    mkdir(figdir);
+end
+if ~isfolder(fullfile(figdir,'png'))
+    mkdir(fullfile(figdir,'png'))
+end
+
+indir = 'ambisonic_withdirect_denoised/';
+rooms = {'Trapezoid','Library'};
 azimuths = [0,30,330];
 
 len = round(0.5*44100); % keep only the first 30ms, EDIT: 500ms
@@ -40,17 +50,30 @@ for indroom = 1:length(rooms)
         ind2 = ind1 + len-1; % end after len ms
         hoasig4thorder = hoasig4thorder(ind1:ind2,:);
 
-        for order=4:1:4
-
+        orders = 0:1:4;
+        norders = numel(orders);
+        f = figure('pos',[37.8000 205.8000 1.4136e+03 318.4000]);
+        count = 1;
+        for order=orders
+            ax(count) = subplot(1,norders,count);
             nambichannels = (order+1)^2;
             hoasig = hoasig4thorder(:,1:nambichannels);
+            plotHOA(hoasig,false)
+            title(sprintf('SH order=%d',order))
             
-            plotHOA(hoasig)
-            title(sprintf('SH room=%s, azimuth=%d, order=%d',room,azimuth,order))
-            
-            plotHOA2(hoasig)
-            title(sprintf('EDD room=%s, azimuth=%d, order=%d',room,azimuth,order))
-            
+%             plotHOA2(hoasig)
+%             title(sprintf('EDD room=%s, azimuth=%d, order=%d',room,azimuth,order))
+            count = count+1;
         end
+        sgtitle(sprintf('SH plot room=%s, azimuth=%d',room,azimuth))
+        figname = sprintf('SH plot %s %d',room,azimuth);
+        saveas(f,[figdir,'/png/',figname,'.png'])
+        for count = 1:numel(ax)
+            pos = get(ax(count),'Position');
+            set(ax(count),'View',[-45 45])
+            set(ax(count),'Position',pos);
+        end
+        figname = sprintf('SH plot %s %d tilted',room,azimuth);
+        saveas(f,[figdir,'/png/',figname,'.png'])
     end
 end

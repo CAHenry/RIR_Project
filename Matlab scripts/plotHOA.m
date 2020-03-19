@@ -1,9 +1,14 @@
-function plotHOA(hoasig)
+function plotHOA(hoasig,newfigure)
 % Directional plot (pressure vs time vs azimuth)
 % Input:
 %   hoasig = nsamples x nchannels
+%   newfigure (true)
 
 % TODO: plot time intervals for precedence effect and stuff
+
+if ~exist('newfigure','var')
+    newfigure = true;
+end
 
 len = round(0.03*44100); % plot only the first 30ms
 tvec = (0:len-1)/44100;
@@ -35,7 +40,10 @@ p_t = p_t(1:len,:); % keep the first 'len' samples
 %             fprintf('average rms = %0.3f\n',mean(rms(p_t)));
 dbsig = db(p_t);
 dbsig(dbsig<-60) = -60;
-figure, s = surf(dir_ev(:,1),tvec,dbsig);
+if newfigure
+    figure
+end
+s = surf(dir_ev(:,1),tvec,dbsig);
 colormap(flipud(gray))
 view(2) % vertical view
 s.EdgeColor = 'none'; % remove surface lines
@@ -46,5 +54,5 @@ set(gca,'XDir','reverse')
 caxis([-50 0])
 zlim([-60 0])
 xlim([-180 180])
-xlabel('Azimuth [degrees]')
+xlabel('Az. [deg]')
 ylabel('t [s]')

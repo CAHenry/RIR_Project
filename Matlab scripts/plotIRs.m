@@ -1,4 +1,6 @@
 
+clear, close all
+
 fs = 44100;
 xlims = [10 1000];
 flims = [20 20000];
